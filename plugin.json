@@ -1,5 +1,5 @@
 {
-	"id": "nodebb-theme-persona",
+	"id": "nodebb-theme-mega-knights-persona",
 	"hooks": [],
 	"scripts": [
 		"lib/persona.js"
