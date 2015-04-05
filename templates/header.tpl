@@ -15,10 +15,10 @@
 	<!-- ENDIF useCustomCSS -->
 
 	<!--[if lt IE 9]>
-  		<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js"></script>
-  		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
-  		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
-  		<script>__lt_ie_9__ = 1;</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+	<script>__lt_ie_9__ = 1;</script>
 	<![endif]-->
 
 	<script>
@@ -31,7 +31,7 @@
 	</script>
 	<script src="{relative_path}/nodebb.min.js?{script-buster}"></script>
 	<!-- IMPORT partials/requirejs-config.tpl -->
-	
+
 	<!-- IF useCustomJS -->
 	{customJS}
 	<!-- ENDIF useCustomJS -->
@@ -43,5 +43,27 @@
 			<!-- IMPORT partials/menu.tpl -->
 		</div>
 	</nav>
-	<div class="container" id="content">
-	<!-- IMPORT partials/noscript/warning.tpl -->
+
+
+
+
+
+	<div class="container" id="main">
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<td class="hidden-xs" style="width: 280px;">
+						<div class="panel panel-default no-gutter" id="mega-teamspeak-container" style="width: 280px;">
+							<div class="panel-heading">
+								<h3 class="panel-title">Teamspeak</h3>
+							</div>
+							<div id="mega-teamspeak" style="padding: 0px 10px">
+								<img src="/plugins/nodebb-plugin-mega-teamspeak/images/loading_knight2.jpg" alt="">
+							</div>
+						</div>
+					</td>
+
+					<td>
+						<div id="content">
+							<!-- IMPORT partials/noscript/warning.tpl -->
