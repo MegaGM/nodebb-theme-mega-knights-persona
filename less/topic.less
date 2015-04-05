@@ -40,8 +40,10 @@
 		}
 
 		.group-label {
-			border-radius: 0;
-			vertical-align: 18%;
+			text-transform: uppercase;
+			vertical-align: 6%;
+			padding: 4px;
+			border-radius: 2px;
 		}
 	}
 
@@ -154,7 +156,7 @@
 		.posts .icon {
 			min-width: 0;
 			min-height: 0;
-			margin-top: -4px;
+			margin-top: 5px;
 
 			img {
 				width: 23px;
@@ -174,6 +176,10 @@
 .topic {
 	&.deleted {
 		.opacity(0.3);
+
+		.votes {
+			display: none;
+		}
 	}
 
 	.posts {
@@ -187,13 +193,17 @@
 				.content {
 					.opacity(0.3);
 				}
+
+				.votes {
+					display: none;
+				}
 			}
 
-			hr {
+			> hr {
 				.transition(0.75s ease-in-out border-color);
 			}
 
-			&.highlight hr {
+			&.highlight > hr {
 				border-color: darken(@brand-info, 20%);
 				box-shadow: 0px 0px 1px @brand-info;
 			}
@@ -212,6 +222,12 @@
 						}
 					}
 				}
+
+				margin-bottom: 5px;
+			}
+
+			blockquote {
+				font-size: 85%;
 			}
 
 			> blockquote {
@@ -241,6 +257,10 @@
 			}
 
 			iframe, .img-responsive {
+				width: 85%;
+			}
+
+			iframe, img {
 				max-width: 400px;
 			}
 
@@ -272,32 +292,36 @@
 }
 
 .thread_active_users {
+	text-transform: initial;
+	
 	a[data-uid] {
+		position: relative;
+		margin-left: 14px;
+
 		img {
 			border-radius: 50%;
 			width: 20px;
 			height: 20px;
-			margin-right: -12px;
 			vertical-align: middle;
 		}
 
 		&::after {
+			position: absolute;
 			z-index: 0;
 			opacity: 0;
 
 			font-family: "FontAwesome";
 			content: "\f11c";
 			padding: 4px 0.25em;
-			position: relative;
 			top: 0px;
-			left: -7px;
+			left: 0px;
 
 			.transition(~"opacity ease 250ms, top ease 250ms")
 		}
 
 		&.replying::after {
 			opacity: 1;
-			top: -16px;
+			top: -24px;
 			.animation(topic-reply-pulse 2s ease-in infinite);
 		}
 	}
