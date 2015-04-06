@@ -2,7 +2,8 @@
 	margin-bottom: 0;
 }
 
-body {
+body,
+nav.navbar.navbar-default.header {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -14,5 +15,12 @@ body {
 
 	@media screen and (min-width: @screen-lg-min) {
 		background-image: url('/plugins/nodebb-theme-mega-knights-persona/images/background_2560.jpg');
+	}
+}
+
+.navbar {
+	border: none;
+	&.navbar-fixed-top {
+		-webkit-transform: translateZ(0);
 	}
 }
