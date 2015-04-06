@@ -1,6 +1,9 @@
 {
 	"id": "nodebb-theme-mega-knights-persona",
 	"hooks": [],
+	"staticDirs": {
+		"images": "static/images"
+	},
 	"scripts": [
 		"lib/persona.js"
 	]

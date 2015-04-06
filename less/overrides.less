@@ -1,3 +1,18 @@
 #mega-teamspeak-bounder-cldbids > table {
 	margin-bottom: 0;
 }
+
+body {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+
+	@media screen and (max-width: @screen-md-max) {
+		background-image: url('/plugins/nodebb-theme-mega-knights-persona/images/background_1280.jpg');
+	}
+
+	@media screen and (min-width: @screen-lg-min) {
+		background-image: url('/plugins/nodebb-theme-mega-knights-persona/images/background_2560.jpg');
+	}
+}
