@@ -1,8 +1,12 @@
 .topic {
 	h1 {
-		font-size: 28px;
+
 		line-height: 24px;
 		margin-bottom: 30px;
+		.topic-title {
+			font-size: 28px;
+			color:inherit;
+		}
 
 		> span {
 			text-transform: uppercase;
@@ -15,6 +19,10 @@
 				vertical-align: middle;
 				margin-right: 8px;
 			}
+		}
+
+		.topic-title {
+			text-transform: initial;
 		}
 
 		.browsing-users {
@@ -59,6 +67,14 @@
 		position: absolute;
 		top: 1px;
 		right: 25px;
+	}
+
+	[component="post/upvote"], [component="post/downvote"] {
+		color: @gray-light;
+	}
+
+	[component="post/upvote"].upvoted, [component="post/downvote"].downvoted {
+		color: @brand-primary;
 	}
 
 	.stats {
@@ -235,7 +251,7 @@
 					}
 				}
 
-				margin-bottom: 5px;
+				margin-bottom: 10px;
 			}
 
 			blockquote {
@@ -270,10 +286,6 @@
 
 			iframe, .img-responsive {
 				max-width: 85%;
-			}
-
-			iframe, img {
-				max-width: 400px;
 			}
 
 			.toggle {
