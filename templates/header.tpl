@@ -55,11 +55,20 @@
 				<tr>
 					<td class="hidden-xs" style="width: 280px;">
 						<div class="panel panel-default no-gutter" id="mega-teamspeak-container" style="width: 280px;">
-							<div class="panel-heading">
-								<h3 class="panel-title">Teamspeak</h3>
-							</div>
-							<div id="mega-teamspeak" style="padding: 0px 10px">
-								<img src="/plugins/nodebb-plugin-mega-teamspeak/images/loading_knight2.jpg" alt="">
+
+							<p style="padding-top: 10px; text-align: center;">
+							<a href="http://www.teamspeak.com/?page=downloads" alt="Скачать клиент TeamSpeak" title="Скачать клиент TeamSpeak" target="_blank">
+								<img src="/plugins/nodebb-theme-mega-knights-persona/images/teamspeak3_logo.png" alt="">
+							</a>
+
+							<br />
+							Адрес сервера: <a href="ts3server://Knights.pro" target="_blank" alt="Адрес для ввода в программу TeamSpeak 3" title="Адрес для ввода в программу TeamSpeak 3">Knights.pro</a></p>
+
+							<div id="mega-teamspeak" style="padding: 0px 5px 10px 3px">
+								<p style="padding-top: 50px; margin-bottom: 150px; text-align: center;">
+								<a href="#" id="mega-teamspeak-spinner" class="active" title="" data-original-title="Connect to Knights.pro TeamSpeak server"><i class="fa fa-spinner fa-spin"></i></a>
+								</p>
+
 							</div>
 						</div>
 					</td>
