@@ -8,6 +8,9 @@
 			<div class="account-picture-block panel panel-default">
 				<div class="panel-body">
 					<div class="text-center">
+
+						{function.pickUserGroups, groups}
+						<br />
 						<img src="{picture}" class="user-profile-picture img-thumbnail" />
 					</div>
 
@@ -55,6 +58,20 @@
 				</div>
 			</div>
 
+			<!-- IF showHidden -->
+				<!-- IF groups.length -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">[[groups:groups]]</h3>
+					</div>
+					<div class="panel-body">
+					<!-- BEGIN groups -->
+						<a href="{relative_path}/groups/{groups.slug}"><span class="label group-label inline-block" style="background-color: {groups.labelColor};"><!-- IF groups.icon --><i class="fa {groups.icon}"></i> <!-- ENDIF groups.icon -->{groups.userTitle}</span></a>
+					<!-- END groups -->
+					</div>
+				</div>
+				<!-- ENDIF groups.length -->
+			<!-- ENDIF showHidden -->
 
 			<div class="panel panel-default">
 				<div class="panel-body text-center">
@@ -109,18 +126,6 @@
 				</div>
 			</div>
 
-			<!-- IF groups.length -->
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">[[groups:groups]]</h3>
-				</div>
-				<div class="panel-body">
-				<!-- BEGIN groups -->
-					<a href="{relative_path}/groups/{groups.slug}"><span class="label group-label inline-block" style="background-color: {groups.labelColor};"><!-- IF groups.icon --><i class="fa {groups.icon}"></i> <!-- ENDIF groups.icon -->{groups.userTitle}</span></a>
-				<!-- END groups -->
-				</div>
-			</div>
-			<!-- ENDIF groups.length -->
 
 			<!-- IF ips.length -->
 			<div class="panel panel-default">
