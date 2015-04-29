@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="display: none;">
 	<div class="col-lg-4">
 		<!-- IF allowGroupCreation -->
 		<button class="btn btn-primary" data-action="new"><i class="fa fa-plus"></i> [[groups:new_group]]</button>
