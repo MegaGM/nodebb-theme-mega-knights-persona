@@ -24,6 +24,40 @@
 				<!-- ENDIF loggedIn -->
 			</div>
 		</div>
+
+		<!-- IF group.isOwner -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-clock-o"></i> [[groups:details.pending]]</h3>
+			</div>
+			<div class="panel-body">
+				<table component="groups/members" class="table table-striped table-hover">
+					<!-- BEGIN pending -->
+					<tr data-uid="{group.pending.uid}">
+						<td>
+							<a href="{config.relative_path}/user/{group.pending.userslug}"><img src="{group.pending.picture}" /></a>
+						</td>
+						<td class="member-name">
+							<a href="{config.relative_path}/user/{group.pending.userslug}">{group.pending.username}</a>
+						</td>
+						<td>
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									More <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#" data-ajaxify="false" data-action="accept">[[groups:pending.accept]]</a></li>
+									<li><a href="#" data-ajaxify="false" data-action="reject">[[groups:pending.reject]]</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+					<!-- END pending -->
+				</table>
+			</div>
+		</div>
+		<!-- ENDIF group.isOwner -->
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title"><i class="fa fa-users"></i> [[groups:details.members]]</h3>
@@ -64,38 +98,7 @@
 				</table>
 			</div>
 		</div>
-		<!-- IF group.isOwner -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-clock-o"></i> [[groups:details.pending]]</h3>
-			</div>
-			<div class="panel-body">
-				<table component="groups/members" class="table table-striped table-hover">
-					<!-- BEGIN pending -->
-					<tr data-uid="{group.pending.uid}">
-						<td>
-							<a href="{config.relative_path}/user/{group.pending.userslug}"><img src="{group.pending.picture}" /></a>
-						</td>
-						<td class="member-name">
-							<a href="{config.relative_path}/user/{group.pending.userslug}">{group.pending.username}</a>
-						</td>
-						<td>
-							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									More <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#" data-ajaxify="false" data-action="accept">[[groups:pending.accept]]</a></li>
-									<li><a href="#" data-ajaxify="false" data-action="reject">[[groups:pending.reject]]</a></li>
-								</ul>
-							</div>
-						</td>
-					</tr>
-					<!-- END pending -->
-				</table>
-			</div>
-		</div>
-		<!-- ENDIF group.isOwner -->
+
 		<div widget-area="left"></div>
 	</div>
 	<div class="col-lg-6 col-xs-12">
@@ -110,17 +113,17 @@
 
 			<div class="panel-body options collapse">
 				<form component="groups/settings" role="form">
-					<div class="form-group">
+					<div class="form-group" style="display: none;">
 						<label for="name">[[groups:details.group_name]]</label>
-						<input class="form-control" name="name" id="name" type="text" value="{group.name}" />
+						<input class="form-control" name="name" id="name" type="text" value="{group.name}" disabled="disabled" />
 					</div>
 					<div class="form-group">
 						<label for="name">[[groups:details.description]]</label>
 						<textarea class="form-control" name="description" id="description" type="text">{group.description}</textarea>
 					</div>
-					<div class="form-group user-title-option">
+					<div class="form-group user-title-option" style="display: none;">
 						<label for="userTitle">[[groups:details.badge_text]]</label>
-						<input component="groups/userTitleOption" class="form-control" name="userTitle" id="userTitle" type="text" value="{group.userTitle}"<!-- IF !userTitleEnabled --> disabled<!-- ENDIF !userTitleEnabled --> />
+						<input component="groups/userTitleOption" class="form-control" name="userTitle" id="userTitle" type="text" value="{group.userTitle}" disabled="disabled" <!-- IF !userTitleEnabled --> disabled<!-- ENDIF !userTitleEnabled --> />
 					</div>
 					<div class="form-group user-title-option">
 						<label>[[groups:details.badge_preview]]</label><br />
