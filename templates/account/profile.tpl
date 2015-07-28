@@ -28,14 +28,28 @@
 							<!-- ENDIF !config.disableChat -->
  							<a id="follow-btn" href="#" class="btn btn-success btn-sm <!-- IF isFollowing -->hide<!-- ENDIF isFollowing -->">[[user:follow]]</a>
  							<a id="unfollow-btn" href="#" class="btn btn-warning btn-sm <!-- IF !isFollowing -->hide<!-- ENDIF !isFollowing -->">[[user:unfollow]]</a>
+                            
+                            				<!-- IF isAdmin -->
+							<br/><br/>
+
+							<a id="banAccountBtn" href="#" class="btn btn-danger btn-sm <!-- IF banned -->hide<!-- ENDIF banned -->">[[user:ban_account]]</a>
+							<a id="unbanAccountBtn" href="#" class="btn btn-danger btn-sm <!-- IF !banned -->hide<!-- ENDIF !banned -->">[[user:unban_account]]</a>
+							<a id="deleteAccountBtn" href="#" class="btn btn-danger btn-sm">[[user:delete_account]]</a><br/><br/>
+							<!-- ENDIF isAdmin -->
 							<!-- ENDIF !isSelf -->
+
 						</div>
 
-						<!-- IF banned -->
-						<div class="text-center">
+						<div id="banLabel" class="text-center <!-- IF !banned -->hide<!-- ENDIF !banned -->">
 							<span class="label label-danger">[[user:banned]]</span>
 						</div>
-						<!-- ENDIF banned -->
+
+						<!-- IF aboutme -->
+						<hr/>
+						<div component="aboutme" class="text-center">
+						{aboutme}
+						</div>
+						<!-- ENDIF aboutme -->
 						<hr/>
 						<div class="text-center account-stats">
 
@@ -54,6 +68,7 @@
 								<span class="account-bio-label">[[user:profile_views]]</span>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -88,7 +103,7 @@
 
 					<!-- IF websiteName -->
 					<span class="account-bio-label">[[user:website]]</span>
-					<span class="account-bio-value"><a href="{website}">{websiteName}</a></span>
+					<span class="account-bio-value"><a href="{websiteLink}">{websiteName}</a></span>
 					<!-- ENDIF websiteName -->
 
 					<!-- IF location -->
@@ -144,7 +159,7 @@
 
 		<div class="col-md-7">
 		<!-- IF !posts.length -->
-		<span>[[user:has_no_posts]]</span>
+		<div class="alert alert-info">[[user:has_no_posts]]</div>
 		<!-- ENDIF !posts.length -->
 		<!-- IMPORT partials/posts_list.tpl -->
 		</div>

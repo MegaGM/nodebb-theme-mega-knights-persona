@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-xs-5 text-left pull-right">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Search" name="query" value="" id="search-text">
+				<input type="text" class="form-control" placeholder="[[global:search]]" name="query" value="" id="search-text">
 				<span id="search-button" class="input-group-addon search-button"><i class="fa fa-search"></i></span>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 
 <hr />
 
-<div component="groups/container" class="row" id="groups-list">
+<div component="groups/container" class="row" id="groups-list" data-nextstart={nextStart}>
 	<!-- IF groups.length -->
 	<!-- IMPORT partials/groups/list.tpl -->
 	<!-- ELSE -->

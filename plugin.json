@@ -5,6 +5,8 @@
 		"images": "static/images"
 	},
 	"scripts": [
-		"lib/persona.js"
+		"lib/persona.js",
+		"lib/modules/nprogress.js",
+		"lib/modules/autohidingnavbar.min.js"
 	]
 }

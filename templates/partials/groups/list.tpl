@@ -2,13 +2,13 @@
 	<div class="col-lg-6 col-md-6 col-sm-12" component="groups/summary" data-slug="{groups.slug}">
 		<div class="panel panel-default">
 			<div class="panel-heading list-cover" style="<!-- IF groups.cover:url -->background-image: url({groups.cover:url});<!-- ENDIF groups.cover:url -->">
-				<h3 class="panel-title">{groups.name} - {groups.memberCount}</h3>
+				<h3 class="panel-title">{groups.displayName} <small>{groups.memberCount}</small></h3>
 			</div>
-			<div class="panel-body" style="display: none;">
+			<div class="panel-body" style="display: none;"
 				<ul class="members">
 					<!-- BEGIN members -->
 					<li>
-						<a href="{relative_path}/user/{groups.members.userslug}">
+						<a href="{config.relative_path}/user/{groups.members.userslug}">
 							<img src="{groups.members.picture}" title="{groups.members.userslug}" />
 						</a>
 					</li>
