@@ -28,7 +28,7 @@
 	</script>
 	<script src="{relative_path}/nodebb.min.js?{script-buster}"></script>
 	<!-- IMPORT partials/requirejs-config.tpl -->
-	
+
 	<!-- IF useCustomJS -->
 	{{customJS}}
 	<!-- ENDIF useCustomJS -->
@@ -61,7 +61,7 @@
 						<!-- VK Widget -->
 						<div id='vk_groups'></div>
 						<script type='text/javascript'>
-						VK.Widgets.Group('vk_groups', {mode: 0, width: '280', height: '250', color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 26322514);
+						VK.Widgets.Group('vk_groups', {mode: 0, width: '280', height: '250', color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 95547226);
 						</script>
 
 						<div class="panel panel-default no-gutter" id="mega-teamspeak-container" style="width: 280px;">
