@@ -190,7 +190,7 @@
 		<div widget-area="left"></div>
 	</div>
 	<div class="col-lg-6 col-xs-12">
-		<!-- IF group.isOwner -->
+		<!-- IF isAdmin -->
 		<div class="panel panel-default">
 			<div class="panel-heading pointer" data-toggle="collapse" data-target=".options">
 				<h3 class="panel-title">
@@ -259,7 +259,7 @@
 				</form>
 			</div>
 		</div>
-		<!-- ENDIF group.isOwner -->
+		<!-- ENDIF isAdmin -->
 
 		<div>
 			<!-- IF !posts.length -->
