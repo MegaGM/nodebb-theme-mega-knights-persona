@@ -30,39 +30,6 @@
 			</div>
 		</div>
 
-		<!-- IF group.isOwner -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-clock-o"></i> [[groups:details.pending]]</h3>
-			</div>
-			<div class="panel-body">
-				<table component="groups/members" class="table table-striped table-hover">
-					<!-- BEGIN pending -->
-					<tr data-uid="{group.pending.uid}">
-						<td>
-							<a href="{config.relative_path}/user/{group.pending.userslug}"><img src="{group.pending.picture}" /></a>
-						</td>
-						<td class="member-name">
-							<a href="{config.relative_path}/user/{group.pending.userslug}">{group.pending.username}</a>
-						</td>
-						<td>
-							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									More <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#" data-ajaxify="false" data-action="accept">[[groups:pending.accept]]</a></li>
-									<li><a href="#" data-ajaxify="false" data-action="reject">[[groups:pending.reject]]</a></li>
-								</ul>
-							</div>
-						</td>
-					</tr>
-					<!-- END pending -->
-				</table>
-			</div>
-		</div>
-		<!-- ENDIF group.isOwner -->
-
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title"><i class="fa fa-users"></i> [[groups:details.members]]</h3>
