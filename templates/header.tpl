@@ -55,14 +55,14 @@
 				<tr>
 					<td class="hidden-xs" style="width: 280px;">
 
+						<!-- START VK Widget -->
+						<!--script type='text/javascript' src='//vk.com/js/api/openapi.js'></script>
 
-						<script type='text/javascript' src='//vk.com/js/api/openapi.js?116'></script>
-
-						<!-- VK Widget -->
 						<div id='vk_groups'></div>
 						<script type='text/javascript'>
 						VK.Widgets.Group('vk_groups', {mode: 0, width: '280', height: '250', color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 95547226);
-						</script>
+						</script-->
+						<!-- END VK Widget -->
 
 						<div class="panel panel-default no-gutter" id="mega-teamspeak-container" style="width: 280px;">
 
