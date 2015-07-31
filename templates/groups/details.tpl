@@ -32,6 +32,57 @@
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
+				<h3 class="panel-title clearfix">
+					<i class="fa fa-clock-o"></i> [[groups:details.pending]]
+					<!-- IF group.isOwner -->
+					<!-- IF group.pending.length -->
+					<div class="btn-group pull-right">
+						<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							[[global:more]] <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#" data-ajaxify="false" data-action="acceptAll">[[groups:pending.accept_all]]</a></li>
+							<li><a href="#" data-ajaxify="false" data-action="rejectAll">[[groups:pending.reject_all]]</a></li>
+						</ul>
+					</div>
+					<!-- ENDIF group.pending.length -->
+					<!-- ENDIF group.isOwner -->
+				</h3>
+			</div>
+			<div class="panel-body">
+				<table component="groups/pending" class="table table-striped table-hover">
+					<!-- IF !group.pending.length -->
+					<div class="alert alert-info">[[groups:pending.none]]</div>
+					<!-- ENDIF !group.pending.length -->
+					<!-- BEGIN pending -->
+					<tr data-uid="{group.pending.uid}">
+						<td>
+							<a href="{config.relative_path}/user/{group.pending.userslug}"><img src="{group.pending.picture}" /></a>
+						</td>
+						<td class="member-name">
+							<a href="{config.relative_path}/user/{group.pending.userslug}">{group.pending.username}</a>
+						</td>
+						<!-- IF group.isOwner -->
+						<td>
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									[[global:more]] <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#" data-ajaxify="false" data-action="accept">[[groups:pending.accept]]</a></li>
+									<li><a href="#" data-ajaxify="false" data-action="reject">[[groups:pending.reject]]</a></li>
+								</ul>
+							</div>
+						</td>
+						<!-- ENDIF group.isOwner -->
+					</tr>
+					<!-- END pending -->
+				</table>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
 				<h3 class="panel-title"><i class="fa fa-users"></i> [[groups:details.members]]</h3>
 			</div>
 			<div class="panel-body">
@@ -72,52 +123,6 @@
 			</div>
 		</div>
 		<!-- IF group.isOwner -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title clearfix">
-					<i class="fa fa-clock-o"></i> [[groups:details.pending]]
-					<!-- IF group.pending.length -->
-					<div class="btn-group pull-right">
-						<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-							[[global:more]] <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#" data-ajaxify="false" data-action="acceptAll">[[groups:pending.accept_all]]</a></li>
-							<li><a href="#" data-ajaxify="false" data-action="rejectAll">[[groups:pending.reject_all]]</a></li>
-						</ul>
-					</div>
-					<!-- ENDIF group.pending.length -->
-				</h3>
-			</div>
-			<div class="panel-body">
-				<table component="groups/pending" class="table table-striped table-hover">
-					<!-- IF !group.pending.length -->
-					<div class="alert alert-info">[[groups:pending.none]]</div>
-					<!-- ENDIF !group.pending.length -->
-					<!-- BEGIN pending -->
-					<tr data-uid="{group.pending.uid}">
-						<td>
-							<a href="{config.relative_path}/user/{group.pending.userslug}"><img src="{group.pending.picture}" /></a>
-						</td>
-						<td class="member-name">
-							<a href="{config.relative_path}/user/{group.pending.userslug}">{group.pending.username}</a>
-						</td>
-						<td>
-							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									[[global:more]] <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#" data-ajaxify="false" data-action="accept">[[groups:pending.accept]]</a></li>
-									<li><a href="#" data-ajaxify="false" data-action="reject">[[groups:pending.reject]]</a></li>
-								</ul>
-							</div>
-						</td>
-					</tr>
-					<!-- END pending -->
-				</table>
-			</div>
-		</div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title clearfix">
