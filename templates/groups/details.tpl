@@ -81,48 +81,7 @@
 			</div>
 		</div>
 
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-users"></i> [[groups:details.members]]</h3>
-			</div>
-			<div class="panel-body">
-				<input class="form-control" type="text" component="groups/members/search" placeholder="[[global:search]]"/><br/>
-				<table component="groups/members" class="table table-striped table-hover" data-nextstart="{group.membersNextStart}">
-					<!-- BEGIN members -->
-					<tr data-uid="{group.members.uid}">
-						<td>
-							<a href="{config.relative_path}/user/{group.members.userslug}"><img src="{group.members.picture}" /></a>
-						</td>
-						<td class="member-name">
-							<a href="{config.relative_path}/user/{group.members.userslug}">{group.members.username}</a> <i title="[[groups:owner]]" class="fa fa-star text-warning <!-- IF !group.members.isOwner -->invisible<!-- ENDIF !group.members.isOwner -->"></i>
-						</td>
-						<!-- IF group.isOwner -->
-						<td>
-							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									[[global:more]] <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li>
-										<a href="#" data-ajaxify="false" data-action="toggleOwnership">
-											[[groups:details.grant]]
-										</a>
-									</li>
-									<li>
-										<a href="#" data-ajaxify="false" data-action="kick">
-											[[groups:details.kick]]
-										</a>
-									</li>
-								</ul>
-							</div>
-						</td>
-						<!-- ENDIF group.isOwner -->
-					</tr>
-					<!-- END members -->
-				</table>
-			</div>
-		</div>
-		<!-- IF group.isOwner -->
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title clearfix">
@@ -130,7 +89,9 @@
 				</h3>
 			</div>
 			<div class="panel-body">
+		<!-- IF group.isOwner -->
 				<input class="form-control" type="text" component="groups/members/invite" placeholder="[[groups:invited.search]]"/><br/>
+		<!-- ENDIF group.isOwner -->
 				<table component="groups/invited" class="table table-striped table-hover">
 					<!-- IF !group.invited.length -->
 					<div class="alert alert-info">[[groups:invited.none]]</div>
@@ -143,6 +104,7 @@
 						<td class="member-name">
 							<a href="{config.relative_path}/user/{group.invited.userslug}">{group.invited.username}</a>
 						</td>
+		<!-- IF group.isOwner -->
 						<td>
 							<div class="btn-group pull-right">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -153,12 +115,12 @@
 								</ul>
 							</div>
 						</td>
+		<!-- ENDIF group.isOwner -->
 					</tr>
 					<!-- END invited -->
 				</table>
 			</div>
 		</div>
-		<!-- ENDIF group.isOwner -->
 		<div widget-area="left"></div>
 	</div>
 	<div class="col-lg-6 col-xs-12">
@@ -232,13 +194,55 @@
 			</div>
 		</div>
 		<!-- ENDIF isAdmin -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-users"></i> [[groups:details.members]]</h3>
+			</div>
+			<div class="panel-body">
+				<input class="form-control" type="text" component="groups/members/search" placeholder="[[global:search]]"/><br/>
+				<table component="groups/members" class="table table-striped table-hover" data-nextstart="{group.membersNextStart}">
+					<!-- BEGIN members -->
+					<tr data-uid="{group.members.uid}">
+						<td>
+							<a href="{config.relative_path}/user/{group.members.userslug}"><img src="{group.members.picture}" /></a>
+						</td>
+						<td class="member-name">
+							<a href="{config.relative_path}/user/{group.members.userslug}">{group.members.username}</a> <i title="[[groups:owner]]" class="fa fa-star text-warning <!-- IF !group.members.isOwner -->invisible<!-- ENDIF !group.members.isOwner -->"></i>
+						</td>
+						<!-- IF group.isOwner -->
+						<td>
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									[[global:more]] <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li>
+										<a href="#" data-ajaxify="false" data-action="toggleOwnership">
+											[[groups:details.grant]]
+										</a>
+									</li>
+									<li>
+										<a href="#" data-ajaxify="false" data-action="kick">
+											[[groups:details.kick]]
+										</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+						<!-- ENDIF group.isOwner -->
+					</tr>
+					<!-- END members -->
+				</table>
+			</div>
+		</div>
 
 		<div>
 			<!-- IF !posts.length -->
 			<div class="alert alert-info">[[groups:details.has_no_posts]]</div>
 			<!-- ENDIF !posts.length -->
-			<!-- IMPORT partials/posts_list.tpl -->
+			<!-- _IMPORT partials/posts_list.tpl -->
 		</div>
+
 		<div widget-area="right"></div>
 	</div>
 </div>
