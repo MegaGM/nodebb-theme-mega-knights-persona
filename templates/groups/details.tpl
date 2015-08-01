@@ -1,10 +1,10 @@
 <div component="groups/container" class="details row">
-	<div class="col-xs-12" component="groups/cover" style="background-image: url({group.cover:url}); background-position: {group.cover:position};">
+	<!-- <div class="col-xs-12" component="groups/cover" style="background-image: url({group.cover:url}); background-position: {group.cover:position};">
 		<div class="change">[[groups:cover-change]] <i class="fa fa-fw fa-pencil-square-o"></i></div>
 		<div class="save">[[groups:cover-save]] <i class="fa fa-fw fa-floppy-o"></i></div>
 		<div class="indicator">[[groups:cover-saving]] <i class="fa fa-fw fa-refresh fa-spin"></i></div>
 		<div class="instructions">[[groups:cover-instructions]]</div>
-	</div>
+	</div> -->
 	<div class="col-lg-6 col-xs-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
