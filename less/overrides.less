@@ -1,53 +1,57 @@
 #mega-teamspeak-bounder-cldbids > table {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 body,
 nav.navbar.navbar-default.header {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
+    background-size      : cover;
+    background-repeat    : no-repeat;
+    background-position  : center;
+    background-attachment: fixed;
+    
+    @media screen and (max-width: @screen-md-max) {
+        background-image: url("/plugins/nodebb-theme-mega-knights-persona/images/background_1280.jpg");
+    }
 
-	@media screen and (max-width: @screen-md-max) {
-		background-image: url('/plugins/nodebb-theme-mega-knights-persona/images/background_1280.jpg');
-	}
-
-	@media screen and (min-width: @screen-lg-min) {
-		background-image: url('/plugins/nodebb-theme-mega-knights-persona/images/background_2560.jpg');
-	}
+    @media screen and (min-width: @screen-lg-min) {
+        background-image: url("/plugins/nodebb-theme-mega-knights-persona/images/background_2560.jpg");
+    }
 }
 
 .navbar {
-	border: none;
-	&.navbar-fixed-top {
-		-webkit-transform: translateZ(0);
-	}
+    border: none;
+    
+    &.navbar-fixed-top {
+        -webkit-transform: translateZ(0);
+    }
 }
-[component="groups/pending"].table, [component="groups/invited"].table {
-	margin-bottom: 0px;
+
+[component="groups/pending"].table,
+[component="groups/invited"].table {
+    margin-bottom: 0;
 }
 
 .panel-default>.panel-heading {
-    color: #333;
+    color           : #333;
     background-color: #fff;
-    border-color: #fff;
+    border-color    : #fff;
 }
 
 #groups-list .list-cover {
-	background-size: cover;
-	min-height: 225px;
-	background-position: 50% 50%;
-	cursor: pointer;
-	h3 {
-	    background-color: rgba(0,0,0,0.5);
-	    display: inline-block;
-	    padding: .25em .5em;
-	    color: white;
-	    font-weight: bold;
-	}
+    background-size    : cover;
+    min-height         : 225px;
+    background-position: 50% 50%;
+    cursor             : pointer;
+    
+    h3 {
+        background-color: rgba(0,0,0,0.5);
+        display         : inline-block;
+        padding         : 0.25em 0.5em;
+        color           : white;
+        font-weight     : bold;
+    }
 }
 
 .img-500h img {
-	max-height: 500px;
+    max-height: 500px;
 }
