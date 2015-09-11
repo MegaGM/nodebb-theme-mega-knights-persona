@@ -27,15 +27,11 @@
 				height: 46px;
 			}
 
-			h1 {
+			h2 {
 				font-size: 20px;
 				line-height: 22px;
 				margin: 0;
-				position: absolute;
 				margin-left: 62px;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
 				width: 85%;
 
 				strong {
@@ -44,9 +40,13 @@
 			}
 
 			@media (max-width: @screen-sm-max) {
-				h1 {
-					width: 95%;
-					margin-left: 0;
+				.user-img {
+					width: 32px;
+					height: 32px;
+					margin-right: 8px;
+				}
+				h2 {
+					margin-left: 40px;
 				}
 			}
 		}

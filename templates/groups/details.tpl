@@ -24,7 +24,7 @@
 				<!-- ENDIF isAdmin -->
 				<!-- IF loggedIn -->
 				<div class="pull-right">
-					{function.membershipBtn, group}
+					{function.membershipBtn, group}&nbsp;
 				</div>
 				<!-- ENDIF loggedIn -->
 			</div>
@@ -157,7 +157,7 @@
 						<button component="groups/userTitleOption" type="button" class="btn btn-default btn-sm" data-action="color-select"<!-- IF !group.userTitleEnabled --> disabled<!-- ENDIF !group.userTitleEnabled -->>[[groups:details.change_colour]]</button>
 						<input type="hidden" name="labelColor" value="<!-- IF group.labelColor -->{group.labelColor}<!-- ENDIF group.labelColor -->" />
 						<input type="hidden" name="icon" value="<!-- IF group.icon -->{group.icon}<!-- ENDIF group.icon -->" />
-						<div id="icons" style="display:none;">
+						<div id="icons" class="hidden">
 							<div class="icon-container">
 								<div class="row fa-icons">
 									<i class="fa fa-doesnt-exist"></i>
