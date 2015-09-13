@@ -13,13 +13,14 @@
 						</script-->
 						<!-- END VK Widget -->
 
-						<div class="panel panel-default no-gutter" id="mega-teamspeak-container" style="width: 280px;">
+						<div class="panel panel-default no-gutter" id="mega-teamspeak-container">
 
-							<p style="padding-top: 10px; text-align: center;">
+							<p style="padding-top: 25px; text-align: center;">
 							<a href="http://www.teamspeak.com/?page=downloads" alt="Скачать клиент TeamSpeak" title="Скачать клиент TeamSpeak" target="_blank">
 								<img src="/plugins/nodebb-theme-mega-knights-persona/images/teamspeak3_logo.png" alt="">
 							</a>
 
+							<br />
 							<br />
 							Адрес сервера: <a href="ts3server://Knights.pro" target="_blank" alt="Адрес для ввода в программу TeamSpeak 3" title="Адрес для ввода в программу TeamSpeak 3">Knights.pro</a></p>
 
