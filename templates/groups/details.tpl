@@ -8,15 +8,12 @@
 	<div class="col-lg-6 col-xs-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">
+				<h3 class="panel-title" style="display: none;">
 					<i class="fa fa-list-ul"></i> [[groups:details.title]]
 					<!-- IF group.private --><span class="label label-info">[[groups:details.private]]</span><!-- ENDIF group.private -->
 					<!-- IF group.hidden --><span class="label label-info">[[groups:details.hidden]]</span>&nbsp;<!-- ENDIF group.hidden -->
 				</h3>
-			</div>
-			<div class="panel-body img-500h">
-				<h1>{group.displayName}</h1>
-				<p>{group.descriptionParsed}</p>
+				
 				<!-- IF isAdmin -->
 				<div class="pull-right">
 					<a href="{config.relative_path}/admin/manage/groups/{group.nameEncoded}" target="_blank" class="btn btn-info"><i class="fa fa-gear"></i> [[user:edit]]</a>
@@ -27,6 +24,11 @@
 					{function.membershipBtn, group}&nbsp;
 				</div>
 				<!-- ENDIF loggedIn -->
+				
+			</div>
+			<div class="panel-body img-500h" style="background: url() top center no-repeat; background-size: cover; padding-top: 0; margin-top: -10px;">
+				<h1 style="margin-top: 0px;">{group.displayName}</h1>
+				<p>{group.descriptionParsed}</p>
 			</div>
 		</div>
 
