@@ -1,28 +1,28 @@
 <!-- IMPORT partials/account_menu.tpl -->
 
-<div class="account">
+<div class="account {function.pickUserPostStyle, groups}">
 
 	<div class="row">
 		<div class="col-md-5 account-block">
 
 			<div class="account-picture-block panel panel-default">
+				<i component="user/status" class="fa fa-circle status {status}" title="[[global:{status}]]"></i>
+				
 				<div class="panel-body">
+					
 					<div class="text-center">
-
-						{function.pickUserGroups, groups}
-						<br />
 						<img src="{picture}" class="user-profile-picture img-thumbnail" />
 					</div>
 
 					<div>
 						<div class="text-center">
 							<span>
-								<i component="user/status" class="fa fa-circle status {status}" title="[[global:{status}]]"></i>
-								<span class="account-username"> {username}</span>
+								{function.pickUserGroups, groups}
+								<span class="account-username">{username} </span>
 							</span>
 
 							<!-- IF !isSelf -->
-							<br/>
+							<br/><hr/>
 							<!-- IF !config.disableChat -->
 							<a id="chat-btn" href="#" class="btn btn-primary btn-sm">[[user:chat]]</a>
 							<!-- ENDIF !config.disableChat -->
@@ -30,7 +30,7 @@
  							<a id="unfollow-btn" href="#" class="btn btn-warning btn-sm <!-- IF !isFollowing -->hide<!-- ENDIF !isFollowing -->">[[user:unfollow]]</a>
 
                             				<!-- IF isAdmin -->
-							<br/><br/>
+							<br/><hr/>
 
 							<a id="banAccountBtn" href="#" class="btn btn-danger btn-sm <!-- IF banned -->hide<!-- ENDIF banned -->">[[user:ban_account]]</a>
 							<a id="unbanAccountBtn" href="#" class="btn btn-danger btn-sm <!-- IF !banned -->hide<!-- ENDIF !banned -->">[[user:unban_account]]</a>
