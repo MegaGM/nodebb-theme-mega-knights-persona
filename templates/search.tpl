@@ -40,11 +40,9 @@
 
 						<div class="form-group post-search-item">
 							<label>[[search:in-categories]]</label>
-							<select multiple class="form-control" id="posted-in-categories">
-								<option value="all">All Categories</option>
-								<option value="watched">Watched Categories</option>
+							<select multiple class="form-control" id="posted-in-categories" size="{categoriesCount}">
 								<!-- BEGIN categories -->
-								<option value="{categories.cid}">{categories.name}</option>
+								<option value="{categories.value}">{categories.text}</option>
 								<!-- END categories -->
 							</select>
 							<input type="checkbox" id="search-children"> [[search:search-child-categories]]

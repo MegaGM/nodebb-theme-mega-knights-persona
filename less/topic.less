@@ -6,6 +6,7 @@
 		.topic-title {
 			font-size: 28px;
 			color:inherit;
+			line-height: 32px;
 		}
 
 		> span {
@@ -63,10 +64,14 @@
 		}
 	}
 
-	.votes {
+	.bookmarked {
 		position: absolute;
 		top: 1px;
-		right: 25px;
+		right: 0px;
+		font-size: 16px;
+		color: darken(@brand-info, 20%);
+		opacity: 0;
+		.transition(0.75s ease-in-out opacity);
 	}
 
 	[component="post/upvote"], [component="post/downvote"] {
@@ -113,22 +118,20 @@
 		margin-top: -63px;
 		margin-left: 81px;
 		margin-bottom: 20px;
+		overflow: hidden;
 	}
 
 	.post-tools {
 		text-transform: lowercase;
-		:before {
-			content: "\2022\0020";
-		}
+
 		a {
+			padding-right: 10px;
 			.pointer;
 		}
 	}
 
 	.moderator-tools {
-		position: absolute;
-		right: -5px;
-		top: 0;
+		margin-left: 10px;
 		font-size: 14px;
 
 		> a {
@@ -140,7 +143,7 @@
 			outline: none;
 
 			&[role="menuitem"] {
-				color: @gray-dark;
+				color: @gray-light;
 			}
 		}
 
@@ -247,6 +250,10 @@
 				border-color: darken(@brand-info, 20%);
 				box-shadow: 0px 0px 1px @brand-info;
 			}
+
+			&.highlight .bookmarked {
+				opacity: 1;
+			}
 		}
 
 		.content {
@@ -267,31 +274,19 @@
 			}
 
 			blockquote {
-				font-size: 85%;
+				font-size: 12px;
 			}
 
 			> blockquote {
-				> *:not(:first-child) {
-					display: none;
-				}
-
 				> blockquote {
-					display: block!important;
-					> *:not(:first-child) {
+					> *:not(.blockquote) {
 						display: none;
 					}
 				}
-			}
 
-			> blockquote.uncollapsed {
-				> *:not(:first-child) {
-					display: block;
-				}
-
-				> blockquote {
-					display: block!important;
-					> *:not(:first-child) {
-						display: block;
+				> blockquote.uncollapsed {
+					> *:not(.blockquote) {
+							display: block;
 					}
 				}
 			}
@@ -323,6 +318,25 @@
 					max-height: 250px;
 				}
 			}
+		}
+	}
+
+	.pagination-block {
+		position: fixed;
+		width: 100%;
+		background-color: #eee;
+		bottom: 0px;
+		left: 0px;
+		z-index: 100;
+
+		.wrapper {
+			padding: 5px 0px 5px 0px;
+		}
+		.progress-bar {
+			background-color: @brand-info;
+			display:block;
+			z-index: -1;
+			position: absolute;
 		}
 	}
 }

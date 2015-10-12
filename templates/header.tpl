@@ -5,10 +5,10 @@
 	<!-- BEGIN metaTags -->
 	{function.buildMetaTag}
 	<!-- END metaTags -->
-	<link rel="stylesheet" type="text/css" href="{relative_path}/stylesheet.css?{config.css-buster}" />
+	<link rel="stylesheet" type="text/css" href="{relative_path}/stylesheet.css?{config.cache-buster}" />
 	<!-- IF bootswatchCSS --><link id="bootswatchCSS" href="{bootswatchCSS}" rel="stylesheet" media="screen"><!-- ENDIF bootswatchCSS -->
 	<!-- BEGIN linkTags -->
-	<link<!-- IF linkTags.link --> link="{linkTags.link}"<!-- ENDIF linkTags.link --><!-- IF linkTags.rel --> rel="{linkTags.rel}"<!-- ENDIF linkTags.rel --><!-- IF linkTags.type --> type="{linkTags.type}"<!-- ENDIF linkTags.type --><!-- IF linkTags.href --> href="{linkTags.href}"<!-- ENDIF linkTags.href --> />
+	{function.buildLinkTag}
 	<!-- END linkTags -->
 
 	<!--[if lt IE 9]>
@@ -26,7 +26,7 @@
 			user: JSON.parse('{{userJSON}}')
 		};
 	</script>
-	<script src="{relative_path}/nodebb.min.js?{config.script-buster}"></script>
+	<script src="{relative_path}/nodebb.min.js?{config.cache-buster}"></script>
 	<!-- IMPORT partials/requirejs-config.tpl -->
 
 	<!-- IF useCustomJS -->
@@ -38,10 +38,10 @@
 </head>
 
 <body>
-	<nav id="menu">
+	<nav id="menu" class="hidden">
 		<section class="menu-profile">
 			<img src="{user.picture}"/>
-			<i component="user/status" class="fa fa-fw fa-circle status {user.status}"></i></span>
+			<i component="user/status" class="fa fa-fw fa-circle status {user.status}"></i>
 		</section>
 
 		<section class="menu-section" data-section="navigation">
@@ -60,7 +60,7 @@
 				[[global:header.notifications]]
 				<span class="counter" component="notifications/icon" data-content="0"></span>
 			</h3>
-			<ul class="menu-section-list" component="notifications/list"></ul>
+			<ul class="menu-section-list notification-list-mobile" component="notifications/list"></ul>
 		</section>
 
 		<section class="menu-section" data-section="chats">

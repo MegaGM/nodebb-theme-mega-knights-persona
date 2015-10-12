@@ -4,12 +4,19 @@
 
 	> li {
 
-		margin-bottom: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		@media (max-width: @screen-xs-max) {
+			border-top: 1px solid #eee;
+			&:last-child {
+				border-bottom: 1px solid #eee;
+			};
+		}
+
 		min-height: 53px;
 
 		.content {
-			margin-top: 7px;
-
 			.icon {
 				font-size: 17px;
 				line-height: 17px;
@@ -28,11 +35,12 @@
 			}
 
 			h2 {
-				font-size: 20px;
+				display: block;
+				word-wrap: break-word;
+				font-size: 18px;
 				line-height: 22px;
 				margin: 0;
 				margin-left: 62px;
-				width: 85%;
 
 				strong {
 					color: @gray-dark;
@@ -58,12 +66,18 @@
 			}
 		}
 
+		.mobile-stat {
+			padding-left: 0px;
+		}
+
 		.card {
 			border-left: 4px solid #ccc;
 			text-align: left;
 			margin-top: 2px;
 			overflow: hidden;
 			height: 53px;
+			font-size: 12px;
+			line-height: 14px;
 
 			> * {
 				padding-left: 20px;
@@ -71,14 +85,12 @@
 
 			img {
 				border-radius: 50%;
-				width: 30px;
-				height: 30px;
+				width: 24px;
+				height: 24px;
 			}
 
 			p {
-				font-size: 12px;
 				margin: 0;
-
 				.emoji {
 					max-width: 12px;
 					max-height: 12px;

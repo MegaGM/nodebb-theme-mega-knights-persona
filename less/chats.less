@@ -1,6 +1,5 @@
 .chats-list {
 	padding: 0;
-	max-height: 608px;
 	overflow-x: hidden;
 	overflow-y: auto;
 	border-top: 1px solid @gray-lighter;
@@ -30,14 +29,15 @@
 			background: lighten(@brand-primary, 25%);
 		}
 
+		.teaser-content {
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
 		&.bg-primary {
 			background: @brand-primary;
-
-			.teaser-content {
-				a {
-					color: @body-bg;
-				}
-			}
 		}
 
 		.username {
@@ -144,14 +144,10 @@
 				border-top: 1px solid @gray-lighter;
 			}
 
-			a {
-				display: block;
+			.chat-user-image {
+				width: 32px;
+				height: 32px;
 				float: left;
-
-				.chat-user-image {
-					width: 32px;
-					height: 32px;
-				}
 			}
 
 			.chat-user {
@@ -219,7 +215,6 @@
 	}
 
 	.input-group {
-		position: absolute;
-		right: 15px;
+		z-index: 1;
 	}
 }

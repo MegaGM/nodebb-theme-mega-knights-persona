@@ -38,10 +38,10 @@
 		</table>
 	</div><!--END main-->
 
-	<div class="hide tpl-500">
+	<div class="hide">
 	<!-- IMPORT 500.tpl -->
 	</div>
-	<!-- IMPORT partials/modals/upload_picture_modal.tpl -->
+
 
 	<div class="topic-search hidden">
 		<div class="btn-group">

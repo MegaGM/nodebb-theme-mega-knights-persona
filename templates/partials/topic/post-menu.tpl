@@ -1,4 +1,4 @@
-<div class="dropdown moderator-tools">
+<span class="dropdown moderator-tools">
 	<a href="#" data-toggle="dropdown"><i class="fa fa-fw fa-ellipsis-v"></i></a>
 	<ul class="dropdown-menu dropdown-menu-right" role="menu">
 
@@ -24,6 +24,15 @@
 				<span class="menu-icon"><i class="fa fa-eraser"></i></span> [[topic:purge]]
 			</a>
 		</li>
+
+		<!-- BEGIN posts.tools -->
+		<li role="presentation">
+			<a component="{posts.tools.action}" role="menuitem" tabindex="-1" href="#">
+				<span class="menu-icon"><i class="fa {posts.tools.icon}"></i></span> {{posts.tools.html}}
+			</a>
+		</li>
+		<!-- END posts.tools -->
+
 		<!-- IF posts.display_move_tools -->
 		<li role="presentation">
 			<a component="post/move" role="menuitem" tabindex="-1" href="#">
@@ -69,4 +78,4 @@
 		</li>
 		<!-- ENDIF !posts.selfPost -->
 	</ul>
-</div>
+</span>

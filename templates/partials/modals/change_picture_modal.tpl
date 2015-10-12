@@ -1,4 +1,4 @@
-	<div id="change-picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="change-picture" aria-hidden="true">
+	<div id="change-picture-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="change-picture" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -22,14 +22,15 @@
 
 					<a id="uploadPictureBtn" href="#">[[user:upload_new_picture]]</a> <br/>
 					<!-- IF config.hasImageUploadPlugin -->
-					<a id="uploadFromUrlBtn" href="#">[[user:upload_new_picture_from_url]]</a>
+					<a id="uploadFromUrlBtn" href="#">[[user:upload_new_picture_from_url]]</a> <br/>
 					<!-- ENDIF config.hasImageUploadPlugin -->
+					<a id="removeUploadedPictureBtn" href="#" class="<!-- IF !uploadedpicture -->hide<!-- ENDIF !uploadedpicture -->">[[user:remove_uploaded_picture]]</a>
 					<!-- ENDIF config.allowProfileImageUploads -->
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">[[global:close]]</button>
 					<button id="savePictureChangesBtn" class="btn btn-primary">[[global:save_changes]]</button>
 				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+			</div>
+		</div>
+	</div>

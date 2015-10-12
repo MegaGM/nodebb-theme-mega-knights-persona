@@ -16,14 +16,22 @@
 
 		<!-- IMPORT partials/topic/badge.tpl -->
 
-		<div class="visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-			[[global:posted_ago, <a class="permalink" href="{config.relative_path}/topic/{slug}/{function.getBookmarkFromIndex}"><span class="timeago" title="{posts.relativeTime}"></span></a>]]
+		<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+			<a class="permalink" href="{config.relative_path}/topic/{slug}/{function.getBookmarkFromIndex}">
+				<span class="timeago" title="{posts.relativeTime}"></span>
+			</a>
+
 			<i class="fa fa-pencil-square pointer edit-icon <!-- IF !posts.editor.username -->hidden<!-- ENDIF !posts.editor.username -->"></i>
 
-			<span class="post-tools">
-				<a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!--ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
-				<a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!--ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
-			</span>
+			<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by_ago,
+				<strong>{posts.editor.username}</strong>,
+				<span class="timeago" title="{posts.relativeEditTime}"></span>]]</small>
+
+
+			<!-- IF posts.toPid -->
+			<button component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="{posts.toPid}"><i class="fa fa-reply"></i> @{posts.parent.username}</button>
+			<!-- ENDIF posts.toPid -->
+
 			<span>
 				<!-- IF posts.user.custom_profile_info.length -->
 				&#124;
@@ -33,34 +41,49 @@
 				<!-- ENDIF posts.user.custom_profile_info.length -->
 			</span>
 		</div>
-		<div class="votes">
-			<!-- IF !reputation:disabled -->
-			<a component="post/upvote" href="#" class="<!-- IF posts.upvoted -->upvoted<!-- ENDIF posts.upvoted -->">
-				<i class="fa fa-chevron-up"></i>
-			</a>
+		<!-- <span class="bookmarked"><i class="fa fa-bookmark-o"></i></span> -->
+
+	</small>
+
+
+	<small class="pull-right">
+		<span class="post-tools">
+			<a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!--ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
+			<a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!--ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
+		</span>
+
+		<!-- IF !reputation:disabled -->
+		<a component="post/upvote" href="#" class="<!-- IF posts.upvoted -->upvoted<!-- ENDIF posts.upvoted -->">
+			<i class="fa fa-chevron-up"></i>
+		</a>
+
+		<span class="votes">
 			<span component="post/vote-count" data-votes="{posts.votes}">{posts.votes}</span>
-			<!-- IF !downvote:disabled -->
-			<a component="post/downvote" href="#" class="<!-- IF posts.downvoted -->downvoted<!-- ENDIF posts.downvoted -->">
-				<i class="fa fa-chevron-down"></i>
-			</a>
-			<!-- ENDIF !downvote:disabled -->
-			<!-- ENDIF !reputation:disabled -->
-		</div>
+		</span>
+
+		<!-- IF !downvote:disabled -->
+		<a component="post/downvote" href="#" class="<!-- IF posts.downvoted -->downvoted<!-- ENDIF posts.downvoted -->">
+			<i class="fa fa-chevron-down"></i>
+		</a>
+		<!-- ENDIF !downvote:disabled -->
+		<!-- ENDIF !reputation:disabled -->
 
 		<!-- IMPORT partials/topic/post-menu.tpl -->
 	</small>
 </div>
 
 <br />
+
 <div class="content" component="post/content" itemprop="text">
 	{posts.content}
-<!-- IF posts.user.signature -->
-<div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
-<!-- ENDIF posts.user.signature -->
 </div>
 
+<div class="clearfix">
+	<!-- IF posts.user.signature -->
+	<div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
+	<!-- ENDIF posts.user.signature -->
 
-<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by_ago, <strong>{posts.editor.username}</strong>, <span class="timeago" title="{posts.relativeEditTime}"></span>]]</small>
 
+</div>
 
 <hr />
