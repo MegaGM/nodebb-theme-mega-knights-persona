@@ -76,13 +76,10 @@
 
 <div class="content" component="post/content" itemprop="text">
 	{posts.content}
-</div>
-
-<div class="clearfix">
+	
 	<!-- IF posts.user.signature -->
 	<div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
 	<!-- ENDIF posts.user.signature -->
-
 
 </div>
 
