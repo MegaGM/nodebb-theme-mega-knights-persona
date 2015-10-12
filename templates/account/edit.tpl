@@ -3,7 +3,7 @@
 
 <div class="account">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-5">
 			<div class="account-picture-block text-center">
 				<img id="user-current-picture" class="user-profile-picture" src="{picture}" /><br /><br />
 				<a id="changePictureBtn" href="#" class="btn btn-default">[[user:change_picture]]</a>
@@ -34,7 +34,153 @@
 			</div>
 		</div>
 
-		<div class="col-md-5">
+		<div class="col-md-7">
+			
+			
+			
+				<!-- add -->
+				<br />
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Интегрированные аккаунты</h3>
+					</div>
+					<div id="mega-teamspeak-bounder-cldbids" style="margin-top: -1px;">
+						<div class="panel-body">
+							Нет подтвержденных аккаунтов
+						</div>
+					</div>
+				</div>
+				<a id="mega-teamspeak-bounder-show-btn" href="#" class="btn btn-primary">Добавить аккаунт Teamspeak</a>
+
+				<br/>
+
+				<form class='form-horizontal no-submit' style="display: none">
+
+					<div class="control-group">
+						<label class="control-label" for="mega-teamspeak-bounder-input-nickname">Укажите ник</label>
+						<div class="input-group">
+							<input class="form-control" type="text" id="mega-teamspeak-bounder-input-nickname" placeholder="Скопируйте сюда Ваш ник из Teamspeak" value="" autocomplete="off">
+							<span class="input-group-addon">
+							<span id="mega-teamspeak-bounder-input-nickname-notify"><i class="fa fa-circle-o"></i></span>
+							</span>
+						</div>
+					</div>
+
+					<br/>
+					<div class="form-actions">
+						<a id="mega-teamspeak-bounder-nickname-btn" href="#" class="btn btn-primary">Получить пин-код</a>
+					</div>
+
+				</form>
+
+				<form class='form-horizontal no-submit' style="display: none">
+
+					<div class="control-group">
+						<label class="control-label" for="mega-teamspeak-bounder-input-pincode">Подтвердите, что это Ваш аккаунт</label>
+						<div class="input-group">
+							<input class="form-control" type="text" id="mega-teamspeak-bounder-input-pincode" placeholder="Введите полученный пин-код" value="" autocomplete="off">
+							<span class="input-group-addon">
+							<span id="mega-teamspeak-bounder-input-pincode-notify"><i class="fa fa-circle-o"></i></span>
+							</span>
+						</div>
+					</div>
+
+					<br/>
+					<div class="form-actions">
+						<a id="mega-teamspeak-bounder-pincode-btn" href="#" class="btn btn-primary">Подтвердить</a>
+					</div>
+
+				</form>
+
+				<script>
+					var successIcon = '<i class="fa fa-check"></i>';
+					var standardIcon = '<i class="fa fa-circle-o"></i>';
+					var iNickname = $( '#mega-teamspeak-bounder-input-nickname' );
+					var iPincode = $( '#mega-teamspeak-bounder-input-pincode' );
+					var bNickname = $( '#mega-teamspeak-bounder-nickname-btn' );
+					var bPincode = $( '#mega-teamspeak-bounder-pincode-btn' );
+					var nNickname = $( '#mega-teamspeak-bounder-input-nickname-notify' );
+					var bShowBounder = $( '#mega-teamspeak-bounder-show-btn' );
+
+					$( 'form.no-submit' ).on( 'submit', function ( event ) {
+						event.preventDefault( );
+					});
+
+					$.get( RELATIVE_PATH + '/mega/teamspeak/bounder/uid/{uid}', {}, function ( data ) {
+						if ( data != 'false' ) {
+							$( '#mega-teamspeak-bounder-cldbids' ).html( data );
+						}
+					});
+
+					bShowBounder.on( 'click', function ( event ) {
+						event.preventDefault( );
+						$( this ).attr( 'disabled', true );
+						/*bNickname.closest( '.form-horizontal' ).removeClass( 'hidden' );*/
+						bNickname.closest( '.form-horizontal' ).slideDown( 'fast' );
+
+					});
+					bNickname.on( 'click', function ( event ) {
+						event.preventDefault( );
+
+						var data = { };
+						data.nickname = iNickname.val( );
+
+						socket.emit( 'modules.bounder', data, function ( fix, data ) {
+							if ( data.err ) return app.alertError( data.err );
+							/*app.alert({ type: 'info', message: 'Введите пинкод', timeout: 3000 });*/
+
+							iNickname.attr( 'disabled', true );
+
+							bNickname.closest( '.form-actions' ).addClass( 'hidden' );
+
+							nNickname.html( successIcon )
+								.parent( ).removeClass( 'alert-danger' ).addClass( 'alert-success' );
+
+							iPincode.closest( '.form-horizontal' ).slideDown( 'fast' );
+						});
+					});
+
+					bPincode.on( 'click', function ( event ) {
+						event.preventDefault( );
+
+						var data = { };
+						data.pincode = iPincode.val( ).trim( );
+
+						socket.emit( 'modules.bounder', data, function ( fix, data ) {
+							if ( data.err ) return app.alertError( data.err );
+							if ( data.msg ) app.alert({
+								type: 'success',
+								title: 'Успех',
+								message: data.msg,
+								clickfn: function ( ) { }
+							});
+
+							iNickname.val( '' );
+							iPincode.val( '' );
+
+							iNickname.attr( 'disabled', false );
+
+							bNickname.closest( '.form-actions' ).removeClass( 'hidden' );
+							bNickname.closest( '.form-horizontal' ).fadeOut( 'slow' );
+
+							nNickname.html( standardIcon )
+								.parent( ).removeClass( 'alert-danger alert-success' );
+
+							iPincode.closest( '.form-horizontal' ).fadeOut( 'slow' );
+							bShowBounder.attr( 'disabled', false );
+
+							$.get( RELATIVE_PATH + '/mega/teamspeak/bounder/uid/{uid}', {}, function ( data ) {
+								if ( data != 'false' ) {
+									$( '#mega-teamspeak-bounder-cldbids' ).html( data );
+								}
+							});
+
+						});
+					});
+				</script>
+				<!-- add -->
+			
 			<div>
 				<form class='form-horizontal'>
 
