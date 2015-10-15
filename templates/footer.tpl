@@ -15,7 +15,7 @@
 
 						<div class="panel panel-default no-gutter" id="mega-teamspeak-container">
 
-							<p style="padding-top: 25px; text-align: center;">
+							<p id="mega-teamspeak-teamspeak-logo" style="padding-top: 85px; text-align: center;">
 							<a href="http://www.teamspeak.com/?page=downloads" alt="Скачать клиент TeamSpeak" title="Скачать клиент TeamSpeak" target="_blank">
 								<img src="/plugins/nodebb-theme-mega-knights-persona/images/teamspeak3_logo.png" alt="">
 							</a>
