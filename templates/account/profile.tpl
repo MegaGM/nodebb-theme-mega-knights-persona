@@ -1,151 +1,105 @@
-<!-- IMPORT partials/account_menu.tpl -->
+<div class="account">
+	<!-- IMPORT partials/account/header.tpl -->
 
-<div class="account {function.pickUserPostStyle, groups}">
+	<div class="profile row">
+		<h1 class="fullname"><!-- IF fullname -->{fullname}<!-- ELSE -->{username}<!-- ENDIF fullname --></h1>
+		<h2 class="username"><!-- IF !banned -->@{username}<!-- ELSE -->[[user:banned]]<!-- ENDIF !banned --></h2>
+
+		<!-- IF aboutme -->
+		<span component="aboutme" class="text-center aboutme">{aboutme}</span>
+		<!-- ENDIF aboutme -->
+
+
+
+		<div class="account-stats">
+			<!-- IF reputation -->
+			<div class="stat">
+				<div class="human-readable-number" title="{reputation}">{reputation}</div>
+				<span class="stat-label">[[global:reputation]]</span>
+			</div>
+			<!-- ENDIF reputation -->
+
+			<div class="stat">
+				<div class="human-readable-number" title="{postcount}">{postcount}</div>
+				<span class="stat-label">[[global:posts]]</span>
+			</div>
+
+			<div class="stat">
+				<div class="human-readable-number" title="{profileviews}">{profileviews}</div>
+				<span class="stat-label">[[user:profile_views]]</span>
+			</div>
+
+			<div class="stat">
+				<div class="human-readable-number" title="{followerCount}">{followerCount}</div>
+				<span class="stat-label">[[user:followers]]</span>
+			</div>
+
+			<div class="stat">
+				<div class="human-readable-number"  title="{followingCount}">{followingCount}</div>
+				<span class="stat-label">[[user:following]]</span>
+			</div>
+		</div>
+
+		<div class="text-center profile-meta">
+			<span>[[user:joined]]</span>
+			<strong class="timeago" title="{joindateISO}"></strong>
+
+			<span>[[user:lastonline]]</span>
+			<strong class="timeago" title="{lastonlineISO}"></strong><br />
+
+			<!-- IF email -->
+			<span>[[user:email]]</span>
+			<strong><i class="fa fa-eye-slash {emailClass}" title="[[user:email_hidden]]"></i> {email}</strong>
+			<!-- ENDIF email -->
+
+			<!-- IF websiteName -->
+			<span>[[user:website]]</span>
+			<strong><a href="{websiteLink}" rel="nofollow">{websiteName}</a></strong>
+			<!-- ENDIF websiteName -->
+
+			<!-- IF location -->
+			<span>[[user:location]]</span>
+			<strong>{location}</strong>
+			<!-- ENDIF location -->
+
+			<!-- IF age -->
+			<span>[[user:age]]</span>
+			<strong>{age}</strong>
+			<!-- ENDIF age -->
+		</div>
+	</div>
+
+
+	<hr />
 
 	<div class="row">
-		<div class="col-md-5 account-block">
+		<div class="col-xs-12 account-block hidden">
+			<div class="account-picture-block text-center">
+				<span>
+					<span class="account-username"> {username}</span>
+				</span>
 
-			<div class="account-picture-block panel panel-default">
-				<i component="user/status" class="fa fa-circle status {status}" title="[[global:{status}]]"></i>
-				
-				<div class="panel-body">
-					
-					<div class="text-center">
-						<img src="{picture}" class="user-profile-picture img-thumbnail" />
-					</div>
+				<!-- IF !isSelf -->
+				<!-- IF isFollowing -->
+				<a component="account/unfollow" href="#" class="btn btn-warning btn-sm">[[user:unfollow]]</a>
+				<!-- ELSE -->
+				<a component="account/follow" href="#" class="btn btn-success btn-sm">[[user:follow]]</a>
+				<!-- ENDIF isFollowing -->
+				<!-- ENDIF !isSelf -->
 
-					<div>
-						<div class="text-center">
-							<span>
-								{function.pickUserGroups, groups}
-								<span class="account-username">{username} </span>
-							</span>
-
-							<!-- IF !isSelf -->
-							<br/><hr/>
-							<!-- IF !config.disableChat -->
-							<a id="chat-btn" href="#" class="btn btn-primary btn-sm">[[user:chat]]</a>
-							<!-- ENDIF !config.disableChat -->
- 							<a id="follow-btn" href="#" class="btn btn-success btn-sm <!-- IF isFollowing -->hide<!-- ENDIF isFollowing -->">[[user:follow]]</a>
- 							<a id="unfollow-btn" href="#" class="btn btn-warning btn-sm <!-- IF !isFollowing -->hide<!-- ENDIF !isFollowing -->">[[user:unfollow]]</a>
-
-							<!-- IF isAdmin -->
-							<br/><br/>
-
-							<a id="banAccountBtn" href="#" class="btn btn-danger btn-sm <!-- IF banned -->hide<!-- ENDIF banned -->">[[user:ban_account]]</a>
-							<a id="unbanAccountBtn" href="#" class="btn btn-danger btn-sm <!-- IF !banned -->hide<!-- ENDIF !banned -->">[[user:unban_account]]</a>
-							<a id="deleteAccountBtn" href="#" class="btn btn-danger btn-sm">[[user:delete_account]]</a><br/><br/>
-							<!-- ENDIF isAdmin -->
-							<!-- ENDIF !isSelf -->
-
-						</div>
-
-						<div id="banLabel" class="text-center <!-- IF !banned -->hide<!-- ENDIF !banned -->">
-							<span class="label label-danger">[[user:banned]]</span>
-						</div>
-
-						<!-- IF aboutme -->
-						<hr/>
-						<div component="aboutme" class="text-center">
-						{aboutme}
-						</div>
-						<!-- ENDIF aboutme -->
-						<hr/>
-						<div class="text-center account-stats">
-
-							<!-- IF reputation -->
-							<div class="inline-block text-center">
-								<span class="human-readable-number" title="{reputation}">{reputation}</span>
-								<span class="account-bio-label">[[global:reputation]]</span>
-							</div>
-							<!-- ENDIF reputation -->
-
-							<div class="inline-block text-center">
-								<span class="human-readable-number" title="{postcount}">{postcount}</span>
-								<span class="account-bio-label">[[global:posts]]</span>
-							</div>
-
-							<div class="inline-block text-center">
-								<span class="human-readable-number" title="{profileviews}">{profileviews}</span>
-								<span class="account-bio-label">[[user:profile_views]]</span>
-							</div>
-						</div>
-
-					</div>
-				</div>
 			</div>
 
-			<!-- IF showHidden -->
-				<!-- IF groups.length -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">[[groups:groups]]</h3>
-					</div>
-					<div class="panel-body">
-					<!-- BEGIN groups -->
-						<a href="{relative_path}/groups/{groups.slug}"><span class="label group-label inline-block" style="background-color: {groups.labelColor};"><!-- IF groups.icon --><i class="fa {groups.icon}"></i> <!-- ENDIF groups.icon -->{groups.userTitle}</span></a>
-					<!-- END groups -->
-					</div>
-				</div>
-				<!-- ENDIF groups.length -->
-			<!-- ENDIF showHidden -->
-
-			<div class="panel panel-default">
-				<div class="panel-body text-center">
-
-					<!-- IF email -->
-					<span class="account-bio-label">[[user:email]]</span>
-					<span class="account-bio-value"><i class="fa fa-eye-slash {emailClass}" title="[[user:email_hidden]]"></i> {email}</span>
-					<!-- ENDIF email -->
-
-					<!-- IF fullname -->
-					<span class="account-bio-label">[[user:fullname]]</span>
-					<span class="account-bio-value">{fullname}</span>
-					<!-- ENDIF fullname -->
-
-					<!-- IF websiteName -->
-					<span class="account-bio-label">[[user:website]]</span>
-					<span class="account-bio-value"><a href="{websiteLink}">{websiteName}</a></span>
-					<!-- ENDIF websiteName -->
-
-					<!-- IF location -->
-					<span class="account-bio-label">[[user:location]]</span>
-					<span class="account-bio-value">{location}</span>
-					<!-- ENDIF location -->
-
-					<!-- IF age -->
-					<span class="account-bio-label">[[user:age]]</span>
-					<span class="account-bio-value">{age}</span>
-					<!-- ENDIF age -->
-
-
-					<span class="account-bio-label">[[user:followers]]</span>
-					<span class="human-readable-number account-bio-value" title="{followerCount}">{followerCount}</span>
-
-					<span class="account-bio-label">[[user:following]]</span>
-					<span class="human-readable-number account-bio-value"  title="{followingCount}">{followingCount}</span>
-
-					<span class="account-bio-label">[[user:joined]]</span>
-					<span class="timeago account-bio-value" title="{joindate}"></span>
-
-					<span class="account-bio-label">[[user:lastonline]]</span>
-					<span class="timeago account-bio-value" title="{lastonline}"></span>
-
-					<!-- IF !disableSignatures -->
-					<!-- IF signature -->
-					<hr/>
-					<span class="account-bio-label">[[user:signature]]</span>
-					<div class="post-signature">
-						<span id='signature'>{signature}</span>
-					</div>
-					<!-- ENDIF signature -->
-					<!-- ENDIF !disableSignatures -->
-				</div>
+			<!-- IF groups.length -->
+			<div class="hidden">
+				<!-- BEGIN groups -->
+				<a href="{config.relative_path}/groups/{groups.slug}"><span class="label group-label inline-block" style="background-color: {groups.labelColor};"><!-- IF groups.icon --><i class="fa {groups.icon}"></i> <!-- ENDIF groups.icon -->{groups.userTitle}</span></a>
+				<!-- END groups -->
 			</div>
-
+			<!-- ENDIF groups.length -->
+			<br /><br />
 
 			<!-- IF ips.length -->
-			<div class="panel panel-default">
+			<div class="hidden">
 				<div class="panel-heading">
 					<h3 class="panel-title">[[global:recentips]]</h3>
 				</div>
@@ -156,10 +110,11 @@
 				</div>
 			</div>
 			<!-- ENDIF ips.length -->
-
 		</div>
 
-		<div class="col-md-7">
+		<h1>[[pages:account/posts, {username}]]</h1>
+
+		<div class="col-xs-12">
 		<!-- IF !posts.length -->
 		<div class="alert alert-warning">[[user:has_no_posts]]</div>
 		<!-- ENDIF !posts.length -->
@@ -172,6 +127,3 @@
 	<div id="user-action-alert" class="alert alert-success hide"></div>
 
 </div>
-
-<!-- IMPORT partials/variables/account.tpl -->
-<!-- IMPORT partials/variables/account/profile.tpl -->

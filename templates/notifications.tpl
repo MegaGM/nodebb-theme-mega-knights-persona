@@ -19,7 +19,7 @@
 		[[notifications:no_notifs]]
 	</div>
 
-	<ul class="notifications-list">
+	<ul class="notifications-list" data-nextstart="{nextStart}">
 	<!-- BEGIN notifications -->
 		<li data-nid="{notifications.nid}" class="{notifications.readClass}" component="notifications/item">
 			<!-- IF notifications.image -->
@@ -27,11 +27,11 @@
 			<a class="pull-left" href="{config.relative_path}/user/{notifications.user.userslug}"><img class="user-img" src="{notifications.image}" /></a>
 			<!-- ENDIF notifications.from -->
 			<!-- ELSE -->
-			<img class="pull-left" src="{notifications.image}" />
+			<a class="pull-left" href="{config.relative_path}/user/{notifications.user.userslug}"><div class="pull-left user-icon user-img" style="background-color: {notifications.user.icon:bgColor};">{notifications.user.icon:text}</div></a>
 			<!-- ENDIF notifications.image -->
 
 			<p>
-				<a component="notifications/item/link" href="{notifications.path}">{notifications.bodyShort}</a>
+				<a component="notifications/item/link" href="{config.relative_path}{notifications.path}">{notifications.bodyShort}</a>
 			</p>
 			<p class="timestamp">
 				<span class="timeago" title="{notifications.datetimeISO}"></span>

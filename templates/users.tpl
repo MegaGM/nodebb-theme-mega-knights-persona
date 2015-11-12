@@ -6,7 +6,7 @@
 
 	<br />
 
-	<div class="search {search_display} well">
+	<div class="search {search_display}">
 		<div class="input-group">
 			<input class="form-control" id="search-user" type="text" placeholder="[[users:enter_username]]"/>
 			<span class="input-group-addon">
@@ -19,7 +19,7 @@
 		<!-- IMPORT partials/users_list.tpl -->
 		<!-- IF anonymousUserCount -->
 		<li class="users-box anon-user">
-			<img src="{defaultGravatar}" />
+			<div class="user-icon">G</div>
 			<br/>
 			<div class="user-info">
 				<span id="online_anon_count">{anonymousUserCount}</span>

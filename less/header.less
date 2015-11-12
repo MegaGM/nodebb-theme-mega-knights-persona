@@ -15,15 +15,13 @@
 			padding: 0.5em;
 			clear: both;
 
-			img {
-				max-width: 32px;
-				max-height: 32px;
+			img, .user-icon {
+				.user-icon-style(@border-radius: 50%);
 				float: left;
-				border-radius: 50%;
 			}
 
 			a {
-				color: @text-color;
+				color: inherit;
 				white-space: normal;
 				overflow: hidden;
 				margin: 0;
@@ -91,10 +89,9 @@
 					left: -26px;
 				}
 
-				img {
-					width: 32px;
+				img, .user-icon {
+					.user-icon-style(@border-radius: 50%);
 					margin-right: 1em;
-					border-radius: 50%;
 				}
 			}
 
@@ -127,15 +124,13 @@
 	#user_dropdown {
 		padding: 10px 15px;
 
-		img {
-			width: 30px;
-			height: 30px;
-			border-radius: 50%;
+		img, .user-icon {
+			.user-icon-style(30px, 1.8rem, 50%);
 			border: 0px none;
 
 			span {
 				font-size: 14px;
-				font-weight: 300;
+				font-weight: 400;
 			}
 		}
 	}
@@ -303,4 +298,48 @@
 	background: #c91106;
 	padding: 1px 2px;
 	font-family: @font-family-sans-serif;
+}
+
+#search-form {
+	#search-button {
+		float: right;
+		max-width: 60px;
+		width: auto;
+		transition-property: max-width, padding-left, padding-right;
+		transition-duration: .2s;
+		transition-timing-function: ease;
+		overflow: hidden;
+	}
+	#search-button.hidden {
+		display: inline-block !important;
+		visibility: visible !important;
+		max-width: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#search-fields {
+		width: auto;
+		max-width: 100%;
+		overflow: hidden;
+		transition: max-width 0.2s ease 0s;
+		max-height: 42px;
+		float: right;
+		display: inline-block !important;
+		visibility: visible !important;
+
+		&.hidden {
+			max-width: 0;
+		}
+
+		input.form-control {
+			width: 98%;
+		}
+
+		.form-group .advanced-search-link {
+			margin: 0;
+			width: 0;
+			position: relative;
+			left: -30px;
+		}
+	}
 }

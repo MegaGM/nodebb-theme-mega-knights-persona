@@ -41,6 +41,7 @@
 					font-size: 15px;
 					opacity: 0;
 					top: 0px;
+					left: 0px;
 
 					&:before {
 						.pointer;
@@ -51,11 +52,11 @@
 					}
 				}
 
-				.user-img {
+				.user-img, .user-icon {
 					opacity: 1;
 				}
 
-				.fa-check, .user-img {
+				.fa-check, .user-img, .user-icon {
 					.transition(.2s ease-in-out opacity);
 				}
 
@@ -63,7 +64,7 @@
 			}
 
 			&.selected {
-				.select .user-img {
+				.select .user-img, .select .user-icon {
 					opacity: 0;
 				}
 
@@ -85,6 +86,11 @@
 			.fa-stack {
 				font-size: 90%;
 			}
+
+			.card .user-icon {
+				display: inline-block;
+				.user-icon-style(24px, 1.5rem, 50%);
+			}
 		}
 
 		&:last-child li {
@@ -105,7 +111,7 @@
 		color: @gray-light;
 	}
 
-	h2.title p {
+	h2.title .description {
 		font-size: 65%;
 		font-weight: normal;
 		line-height: 1;

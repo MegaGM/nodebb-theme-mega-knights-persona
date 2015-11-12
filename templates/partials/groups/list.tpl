@@ -1,15 +1,19 @@
 	<!-- BEGIN groups -->
-	<div class="col-lg-6 col-md-6 col-sm-12" component="groups/summary" data-slug="{groups.slug}">
+	<div class="col-lg-4 col-md-6 col-sm-12" component="groups/summary" data-slug="{groups.slug}">
 		<div class="panel panel-default">
 			<div class="panel-heading list-cover" style="<!-- IF groups.cover:url -->background-image: url({groups.cover:url});<!-- ENDIF groups.cover:url -->">
-				<h3 class="panel-title"><a href="#">{groups.displayName}</a> <small>{groups.memberCount}</small></h3>
+				<h3 class="panel-title">{groups.displayName} <small>{groups.memberCount}</small></h3>
 			</div>
-			<div class="panel-body" style="display: none;"
+			<div class="panel-body">
 				<ul class="members">
 					<!-- BEGIN members -->
 					<li>
 						<a href="{config.relative_path}/user/{groups.members.userslug}">
-							<img src="{groups.members.picture}" title="{groups.members.userslug}" />
+							<!-- IF groups.members.picture -->
+							<img src="{groups.members.picture}" title="{groups.members.username}" />
+							<!-- ELSE -->
+							<div class="user-icon" style="background-color: {groups.members.icon:bgColor};" title="{groups.members.username}">{groups.members.icon:text}</div>
+							<!-- ENDIF groups.members.picture -->
 						</a>
 					</li>
 					<!-- END members -->

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Exo+2:300,600,300italic,600italic&subset=latin,cyrillic);
+@import url(//fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 
 html {
 	overflow-y: scroll;
@@ -12,7 +12,7 @@ body {
 
 	@media (max-width: 979px)
 	{
-		// padding-top: 70px;
+		padding-top: 70px;
 		padding-bottom: 50px;
 	}
 }
@@ -67,12 +67,10 @@ a:hover, .btn-link:hover, .btn-link:active, .btn-link:focus {
 }
 
 .profile-image {
-	width: 52px;
-	height: 52px;
+	.user-icon-style(52px, 2.6rem);
 
 	&.small {
-		width: 26px;
-		height: 26px;
+		.user-icon-style(26px, 1.3rem);
 	}
 }
 
@@ -81,19 +79,19 @@ a:hover, .btn-link:hover, .btn-link:active, .btn-link:focus {
 	vertical-align: middle;
 
 	&.online {
-		color: #060;
+		color: @material-success;
 	}
 
 	&.away {
-		color: #cc0;
+		color: @material-warning;
 	}
 
 	&.dnd {
-		color: #900;
+		color: @material-danger;
 	}
 
 	&.offline {
-		color: gray;
+		color: @gray;
 	}
 }
 

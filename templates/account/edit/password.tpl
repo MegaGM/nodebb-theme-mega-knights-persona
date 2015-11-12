@@ -1,14 +1,14 @@
-<!-- IMPORT partials/account_menu.tpl -->
+<div class="account">
+	<!-- IMPORT partials/account/header.tpl -->
 
-<div class="col-md-5">
-	<form class='form-horizontal'>
+	<form class="form-horizontal edit-form">
 		<!-- disables autocomplete on FF --><input type="password" style="display:none">
 
 		<!-- IF isSelf -->
 		<div class="control-group">
 			<label class="control-label" for="inputCurrentPassword">[[user:current_password]]</label>
 			<div class="controls">
-				<input autocomplete="off" class="form-control" type="password" id="inputCurrentPassword" placeholder="[[user:current_password]]" value=""<!-- IF !hasPassword --> disabled<!-- ENDIF !hasPassword-->>
+				<input autocomplete="off" class="form-control" type="password" id="inputCurrentPassword" placeholder="[[user:current_password]]" value=""<!-- IF !hasPassword --> disabled<!-- ENDIF !hasPassword -->>
 			</div>
 		</div>
 		<!-- ENDIF isSelf -->
@@ -34,7 +34,7 @@
 		</div>
 		<br/>
 		<div class="form-actions">
-			<a id="changePasswordBtn" href="#" class="btn btn-primary"><i class="hide fa fa-spinner fa-spin"></i> [[user:change_password]]</a>
+			<a id="changePasswordBtn" href="#" class="btn btn-primary btn-block"><i class="hide fa fa-spinner fa-spin"></i> [[user:change_password]]</a>
 		</div>
 	</form>
 </div>
