@@ -1,7 +1,7 @@
 {
     "id": "nodebb-theme-mega-knights-persona",
     "name": "nodebb-theme-mega-knights-persona",
-    "description": "The default theme for NodeBB. Uses a standard approach to forum design.",
+    "description": "Mega Knights.pro theme",
     "url": "https://github.com/psychobunny/nodebb-theme-persona",
     "screenshot": "screenshot.jpg"
 }
