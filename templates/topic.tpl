@@ -1,5 +1,5 @@
 <div class="row">
-<div class="topic col-lg-12">
+<div class="topic col-lg-9">
 	<!-- IMPORT partials/breadcrumbs.tpl -->
 
 	<h1 component="post/header" class="hidden-xs" itemprop="name">
@@ -51,6 +51,11 @@
 		</div>
 	</div>
 </div>
+
+<div id="sidebar-area" class="col-lg-3">
+	Sidebar-area
+</div>
+
 </div>
 <!-- IF !config.usePagination -->
 <noscript>
