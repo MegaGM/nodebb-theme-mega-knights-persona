@@ -53,11 +53,13 @@
 									<i class="fa fa-fw fa-circle status dnd"></i><span> [[global:dnd]]</span>
 								</a>
 							</li>
+							<!-- IF isAdmin -->
 							<li>
 								<a href="#" class="user-status" data-status="offline">
 									<i class="fa fa-fw fa-circle status offline"></i><span> [[global:invisible]]</span>
 								</a>
 							</li>
+							<!-- ENDIF isAdmin -->
 							<li role="presentation" class="divider"></li>
 							<li component="user/logout">
 								<a href="#"><i class="fa fa-fw fa-sign-out"></i><span> [[global:logout]]</span></a>
