@@ -81,5 +81,8 @@
 				<!-- IMPORT partials/menu.tpl -->
 			</div>
 		</nav>
+		<div class="" id="sidebar-area">
+			Meow
+		</div>
 		<div class="container" id="content">
 		<!-- IMPORT partials/noscript/warning.tpl -->

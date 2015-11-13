@@ -1,5 +1,5 @@
 <div class="row">
-<div class="topic col-lg-9">
+<div class="topic col-lg-12">
 	<!-- IMPORT partials/breadcrumbs.tpl -->
 
 	<h1 component="post/header" class="hidden-xs" itemprop="name">
