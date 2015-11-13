@@ -52,10 +52,6 @@
 	</div>
 </div>
 
-<div id="sidebar-area" class="col-lg-3">
-	Sidebar-area
-</div>
-
 </div>
 <!-- IF !config.usePagination -->
 <noscript>
