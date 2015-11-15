@@ -82,7 +82,14 @@
 			</div>
 		</nav>
 		<div class="" id="sidebar-area">
-			Meow
+			<div id="sidebar-area-close-button">
+				&#8676; Закрыть сайдбар
+			</div>
+
+			<div id="mega-teamspeak">
+				<img src="http://localhost:8989/plugins/nodebb-plugin-mega-teamspeak/images/coffee.gif" alt="" />
+			</div>
 		</div>
+		<div id="sidebar-area-open-button" class=""></div>
 		<div class="container" id="content">
 		<!-- IMPORT partials/noscript/warning.tpl -->

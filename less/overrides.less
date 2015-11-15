@@ -4,8 +4,33 @@
 
 #sidebar-area {
   position: fixed;
-  background-color: #f00;
-  height: 500px;
-  right: 0;
 	display: none;
+  background-color: #f0f0f5;
+	box-shadow: 1px 3px 3px 1px #888;
+	z-index: 28010;
+  top: 51px;
+  bottom: 0;
+	left: -350px;
+  overflow-y: auto;
+}
+
+#sidebar-area-close-button {
+	padding: 10px 0 10px 10px;
+	background-color: #abcdef;
+}
+
+
+#sidebar-area-open-button {
+	z-index: 28000;
+  position: fixed;
+	top: 65px;
+	left: -19px;
+	width: 48px;
+	height: 48px;
+	background: url('http://localhost:8989/plugins/nodebb-plugin-mega-teamspeak/images/icon.png');
+  background-size: contain;
+	transition: left 0.2s;
+	&:hover {
+		left: -5px;
+	}
 }
