@@ -82,14 +82,19 @@
 			</div>
 		</nav>
 		<div class="" id="sidebar-area">
-			<div id="sidebar-area-close-button">
-				&#8676; Закрыть сайдбар
+			<div class="sidebar-area-close-button">
+				&#8676;
 			</div>
 
+			<img id="mega-teamspeak-logo" src="/plugins/nodebb-theme-mega-knights-persona/static/teamspeak3_logo.png">
 			<div id="mega-teamspeak">
-				<img src="http://localhost:8989/plugins/nodebb-plugin-mega-teamspeak/images/coffee.gif" alt="" />
+				<img id="mega-teamspeak-loading-spinner" src="/plugins/nodebb-theme-mega-knights-persona/static/loading_spinner.gif" alt="" />
+			</div>
+
+			<div class="sidebar-area-close-button">
+				&#8676;
 			</div>
 		</div>
-		<div id="sidebar-area-open-button" class=""></div>
+		<div class="sidebar-area-open-button"></div>
 		<div class="container" id="content">
 		<!-- IMPORT partials/noscript/warning.tpl -->

@@ -5,6 +5,13 @@
 		"lib/persona.js",
 		"lib/modules/nprogress.js",
 		"lib/modules/autohidingnavbar.js",
-		"lib/modules/slideout.min.js"
+		"lib/modules/slideout.min.js",
+		"client/js/activate.js"
+	],
+	"staticDirs": {
+		"static": "static"
+	},
+	"css": [
+		"css/perfect-scrollbar.min.css"
 	]
 }
