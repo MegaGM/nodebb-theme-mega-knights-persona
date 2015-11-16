@@ -4,8 +4,6 @@ $(document).on('ready', function (e) {
 
 		pScroll.initialize(document.getElementById('sidebar-area'));
 
-		console.log(typeof Cookies.get('sidebar-is-open'));
-
 		if ('true' === Cookies.get('sidebar-is-open') && 'lg' === utils.findBootstrapEnvironment()) {
 			openSidebar();
 		}
