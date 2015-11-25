@@ -81,20 +81,8 @@
 				<!-- IMPORT partials/menu.tpl -->
 			</div>
 		</nav>
-		<div class="" id="sidebar-area">
-			<div class="sidebar-area-close-button">
-				&#8676;
-			</div>
 
-			<img id="mega-teamspeak-logo" src="/plugins/nodebb-theme-mega-knights-persona/static/teamspeak3_logo.png">
-			<div id="mega-teamspeak">
-				<img id="mega-teamspeak-loading-spinner" src="/plugins/nodebb-theme-mega-knights-persona/static/loading_spinner.gif" alt="" />
-			</div>
+		<!-- IMPORT nodebb-plugin-mega-sidebar-area.tpl -->
 
-			<div class="sidebar-area-close-button">
-				&#8676;
-			</div>
-		</div>
-		<div class="sidebar-area-open-button"></div>
 		<div class="container" id="content">
 		<!-- IMPORT partials/noscript/warning.tpl -->

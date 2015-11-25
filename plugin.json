@@ -5,8 +5,7 @@
 		"lib/persona.js",
 		"lib/modules/nprogress.js",
 		"lib/modules/autohidingnavbar.js",
-		"lib/modules/slideout.min.js",
-		"client/js/activate.js"
+		"lib/modules/slideout.min.js"
 	],
 	"staticDirs": {
 		"static": "static"
