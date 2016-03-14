@@ -23,15 +23,14 @@
 		<!-- ENDIF posts.user.banned -->
 
 		<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-			<a class="permalink" href="{config.relative_path}/topic/{slug}/{function.getBookmarkFromIndex}"><span class="timeago" title="{posts.relativeTime}"></span></a>
+			<a class="permalink" href="{config.relative_path}/topic/{slug}/{function.getBookmarkFromIndex}"><span class="timeago" title="{posts.timestampISO}"></span></a>
 
 			<i class="fa fa-pencil-square pointer edit-icon <!-- IF !posts.editor.username -->hidden<!-- ENDIF !posts.editor.username -->"></i>
 
-			<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by_ago, <strong>{posts.editor.username}</strong>, <span class="timeago" title="{posts.relativeEditTime}"></span>]]</small>
-
+			<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by, {posts.editor.username}]] <span class="timeago" title="{posts.relativeEditTime}"></span></small>
 
 			<!-- IF posts.toPid -->
-			<button component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="{posts.toPid}"><i class="fa fa-reply"></i> @{posts.parent.username}</button>
+			<button component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="{posts.toPid}"><i class="fa fa-reply"></i> @<!-- IF posts.parent.username -->{posts.parent.username}<!-- ELSE -->[[global:guest]]<!-- ENDIF posts.parent.username --></button>
 			<!-- ENDIF posts.toPid -->
 
 			<span>
@@ -78,8 +77,8 @@
 				<i class="fa fa-chevron-down"></i>
 			</a>
 			<!-- ENDIF !downvote:disabled -->
-			<!-- ENDIF !reputation:disabled -->
 		</span>
+		<!-- ENDIF !reputation:disabled -->
 
 		<!-- IMPORT partials/topic/post-menu.tpl -->
 	</small>

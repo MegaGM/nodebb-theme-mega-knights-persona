@@ -4,13 +4,14 @@
 	"scripts": [
 		"lib/persona.js",
 		"lib/modules/nprogress.js",
-		"lib/modules/autohidingnavbar.js",
-		"lib/modules/slideout.min.js"
+		"lib/modules/slideout.min.js",
+		"lib/client/chats.js",
+		"mega/lib/modules/autohidingnavbar.js"
 	],
 	"staticDirs": {
-		"static": "static"
+		"static": "mega/static"
 	},
 	"css": [
-		"css/perfect-scrollbar.min.css"
+		"mega/css/perfect-scrollbar.min.css"
 	]
 }

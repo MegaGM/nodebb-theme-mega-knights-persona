@@ -41,7 +41,7 @@
 		}
 
 		.username {
-			font-size: 18px;
+			font-size: 14px;
 
 			&:after {
 				display: inline-block;
@@ -54,9 +54,6 @@
 
 		.teaser-timestamp {
 			font-size: 10px;
-			position: absolute;
-			top: 8px;
-			right: 24px;
 		}
 
 		a {
@@ -86,7 +83,18 @@
 			font-size: 20px;
 			top: 10px;
 		}
+
+		.leave {
+			opacity: 0.5;
+			&:hover {
+				opacity: 1.0;
+			}
+		}
 	}
+}
+
+.chat-modal {
+	z-index: 10000 !important;
 }
 
 .expanded-chat, .chat-modal {
@@ -176,6 +184,16 @@
 					}
 				}
 			}
+
+			.controls {
+				display: none;
+			}
+
+			&:hover {
+				.controls {
+					display: block;
+				}
+			}
 		}
 	}
 
@@ -198,6 +216,13 @@
 
 	textarea {
 		resize: none;
+		height: 42px;
+	}
+
+	.since-bar {
+		display: block;
+		padding: 1rem 0;
+		text-align: center;
 	}
 }
 
@@ -213,5 +238,41 @@
 
 	.input-group {
 		z-index: 1;
+	}
+}
+
+[component="chat/search/list"] {
+	
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-top: 1px solid @gray-lighter;
+	
+	li {
+		position: relative;
+		clear: both;
+		list-style-type: none;
+		padding: .5em;
+		height: 70px;
+		cursor: pointer;
+		border-left: 1px solid;
+		border-right: 1px solid;
+		border-bottom: 1px solid;
+		border-color: #eee;
+		background: #fff;
+
+		i {
+			position: relative;
+			left: -30px;
+			font-size: 20px;
+			top: -20px;
+		}
+
+		img, .user-icon {
+			.user-icon-style(50px, 2.4rem, 50%);
+			margin-top: 4px;
+			margin-right: 13px;
+			margin-left: .5em;
+		}
 	}
 }

@@ -4,7 +4,6 @@
 		margin-bottom: 30px;
 
 		.topic-title {
-			display: block;
 			word-wrap: break-word;
 			font-size: 28px;
 			color:inherit;
@@ -34,6 +33,35 @@
 	}
 
 	.posts {
+		h1 {
+			font-size: 22px;
+			margin: 10px 0;
+		}
+
+		h2 {
+			font-size: 20px;
+		}
+
+		h3 {
+			text-transform: uppercase;
+			font-size: 16px;
+			font-weight: 900;
+		}
+
+		h4 {
+			font-size: 17px;
+		}
+
+		h5 {
+			font-weight: 800;
+			text-transform: uppercase;
+		}
+
+		h4, h5, h6 {
+			margin-top: 15px
+		}
+
+
 		.icon {
 			position: relative;
 			border-radius: 50%;
@@ -84,6 +112,10 @@
 
 	[component="post/upvote"], [component="post/downvote"] {
 		color: @gray-light;
+        
+        	&:focus {
+            		text-decoration: none;
+        	}
 	}
 
 	[component="post/upvote"].upvoted, [component="post/downvote"].downvoted {
@@ -309,10 +341,16 @@
 	.pagination-block {
 		position: fixed;
 		width: 100%;
-		background-color: #eee;
+		background-color: @gray-lighter;
 		bottom: 0px;
 		left: 0px;
 		z-index: 100;
+		transition: opacity 250ms ease-in;
+		opacity: 0;
+
+		&.ready {
+			opacity: 1;
+		}
 
 		.wrapper {
 			padding: 5px 0px 5px 0px;

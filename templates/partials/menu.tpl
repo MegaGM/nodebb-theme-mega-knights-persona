@@ -53,13 +53,11 @@
 									<i class="fa fa-fw fa-circle status dnd"></i><span> [[global:dnd]]</span>
 								</a>
 							</li>
-							<!-- IF isAdmin -->
 							<li>
 								<a href="#" class="user-status" data-status="offline">
 									<i class="fa fa-fw fa-circle status offline"></i><span> [[global:invisible]]</span>
 								</a>
 							</li>
-							<!-- ENDIF isAdmin -->
 							<li role="presentation" class="divider"></li>
 							<li component="user/logout">
 								<a href="#"><i class="fa fa-fw fa-sign-out"></i><span> [[global:logout]]</span></a>
@@ -98,6 +96,7 @@
 									</li>
 								</ul>
 							</li>
+							<li class="notif-dropdown-link"><a href="#" class="mark-all-read" component="chats/mark-all-read">[[modules:chat.mark_all_read]]</a></li>
 							<li class="notif-dropdown-link"><a href="{relative_path}/chats">[[modules:chat.see_all]]</a></li>
 						</ul>
 					</li>
@@ -135,7 +134,7 @@
 							</div>
 						</form>
 					</li>
-					<li class="visible-xs">
+					<li class="visible-xs" id="search-menu">
 						<a href="{relative_path}/search">
 							<i class="fa fa-search fa-fw"></i> [[global:search]]
 						</a>
@@ -151,7 +150,7 @@
 					</li>
 				</ul>
 
-				<ul class="nav navbar-nav navbar-right pagination-block invisible visible-lg visible-md">
+				<ul class="nav navbar-nav navbar-right pagination-block visible-lg visible-md">
 					<li class="dropdown">
 						<i class="fa fa-angle-double-up pointer fa-fw pagetop"></i>
 						<i class="fa fa-angle-up pointer fa-fw pageup"></i>
@@ -177,7 +176,7 @@
 					<!-- BEGIN navigation -->
 					<!-- IF function.displayMenuItem, @index -->
 					<li class="{navigation.class}">
-						<a href="{relative_path}{navigation.route}" title="{navigation.title}" <!-- IF navigation.id -->id="{navigation.id}"<!-- ENDIF navigation.id --><!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
+						<a href="{navigation.route}" title="{navigation.title}" <!-- IF navigation.id -->id="{navigation.id}"<!-- ENDIF navigation.id --><!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
 							<!-- IF navigation.iconClass -->
 							<i class="fa fa-fw {navigation.iconClass}"></i>
 							<!-- ENDIF navigation.iconClass -->

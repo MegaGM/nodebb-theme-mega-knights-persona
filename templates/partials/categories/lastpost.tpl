@@ -5,13 +5,13 @@
 		<p>
 			<a href="{config.relative_path}/user/{../user.userslug}">
 				<!-- IF ../user.picture -->
-				<img class="user-img" alt="{../user.username}" src="{../user.picture}" />
+				<img class="user-img" title="{../user.username}" alt="{../user.username}" src="{../user.picture}" title="{../user.username}"/>
 				<!-- ELSE -->
 				<span class="user-icon user-img" title="{../user.username}" style="background-color: {../user.icon:bgColor};">{../user.icon:text}</span>
 				<!-- ENDIF ../user.picture -->
 			</a>
 			<a class="permalink" href="{config.relative_path}/topic/{../topic.slug}<!-- IF ../index -->/{../index}<!-- ENDIF ../index -->">
-				<small class="timeago" title="{../timestamp}"></small>
+				<small class="timeago" title="{../timestampISO}"></small>
 			</a>
 		</p>
 		<div class="post-content">

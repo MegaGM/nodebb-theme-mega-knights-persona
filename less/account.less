@@ -37,7 +37,7 @@
 		left: auto;
 		right: 0px;
 
-		.avatar {
+		.avatar-wrapper {
 			position: absolute;
 			left: 50%;
 			margin-left: -64px;
@@ -136,7 +136,7 @@
 			right: 2em;
 			opacity: 1;
 			background-color: @brand-primary;
-			color: #eee;
+			color: @gray-lighter;
 			padding: 0.5em;
 			font-weight: bold;
 
@@ -177,7 +177,7 @@
 				line-height: 300px;
 			}
 
-			.avatar {
+			.avatar-wrapper {
 				top: 230px;
 			}
 		}
@@ -239,7 +239,7 @@
 }
 
 
-.account-fab {
+.btn-group.account-fab {
 	position: absolute;
 	right: 15px;
 	bottom: -26px;
@@ -259,6 +259,10 @@
 	.account > .row {
 		overflow: hidden;
 	}
+
+	.profile {
+		margin-top: -25px;
+	}
 }
 
 
@@ -275,10 +279,6 @@
 	.dropdown-toggle {
 		cursor: pointer;
 	}
-}
-
-.user-profile-picture {
-	.user-icon-style(128px, 7.5rem, 50%);
 }
 
 .user-picture-label {

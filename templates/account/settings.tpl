@@ -156,6 +156,36 @@
 				</select>
 			</div>
 
+			<!-- IF sessions.length -->
+			<h4>[[global:sessions]]</h4>
+			<ul class="list-group" component="user/sessions">
+				<!-- BEGIN sessions -->
+				<li class="list-group-item" data-uuid="{../uuid}">
+					<div class="pull-right">
+						<!-- IF !../current -->
+						<button class="btn btn-xs btn-default" type="button" data-action="revokeSession">Revoke Session</button>
+						<!-- ENDIF !../current -->
+						{function.userAgentIcons}
+						<i class="fa fa-circle text-<!-- IF ../current -->success<!-- ELSE -->muted<!-- ENDIF ../current -->"></i>
+					</div>
+					{../browser} {../version} on {../platform}<br />
+					<small class="timeago text-muted" title="{../datetimeISO}"></small>
+					<ul>
+						<li><strong>[[global:ip_address]]</strong>: {../ip}</li>
+					</ul>
+				</li>
+				<!-- END sessions -->
+			</ul>
+			<!-- ENDIF sessions.length -->
+
+			<!-- IF ips.length -->
+			<h4>[[global:recentips]]</h4>
+			<div class="well">
+				<!-- BEGIN ips -->
+					<div>{ips.ip}</div>
+				<!-- END ips -->
+			</div>
+			<!-- ENDIF ips.length -->
 
 			<!-- BEGIN customSettings -->
 			<h4>{customSettings.title}</h4>
