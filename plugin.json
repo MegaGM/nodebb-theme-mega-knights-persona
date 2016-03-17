@@ -10,8 +10,5 @@
 	],
 	"staticDirs": {
 		"static": "mega/static"
-	},
-	"css": [
-		"mega/css/perfect-scrollbar.min.css"
-	]
+	}
 }
