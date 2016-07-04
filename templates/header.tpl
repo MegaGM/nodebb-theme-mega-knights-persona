@@ -37,7 +37,7 @@
 	<!-- ENDIF useCustomCSS -->
 </head>
 
-<body class="{bodyClass}">
+<body class="{bodyClass} skin-{config.bootswatchSkin}">
 	<nav id="menu" class="hidden">
 		<section class="menu-profile">
 			<!-- IF user.uid -->
@@ -67,6 +67,7 @@
 				<span class="counter" component="notifications/icon" data-content="0"></span>
 			</h3>
 			<ul class="menu-section-list notification-list-mobile" component="notifications/list"></ul>
+			<p class="menu-section-list"><a href="{relative_path}/notifications">[[notifications:see_all]]</a></p>
 		</section>
 
 		<section class="menu-section" data-section="chats">

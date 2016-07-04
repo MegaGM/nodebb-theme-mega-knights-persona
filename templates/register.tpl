@@ -4,7 +4,7 @@
 	<div class="{register_window:spansize}">
 		<div class="well well-lg">
 			<div class="alert alert-danger<!-- IF !error --> hidden<!-- ENDIF !error -->" id="register-error-notify" >
-				[[error:registration-error]]
+				<strong>[[error:registration-error]]</strong>
 				<p>{error}</p>
 			</div>
 			<form component="register/local" class="form-horizontal" role="form" action="{config.relative_path}/register" method="post">
@@ -65,21 +65,6 @@
 				</div>
 				<!-- END regFormEntry -->
 
-				<!-- IF termsOfUse -->
-				<div class="form-group">
-					<label class="col-lg-4 control-label">&nbsp;</label>
-					<div class="col-lg-8">
-						<hr />
-						<strong>[[register:terms_of_use]]</strong>
-						<div class="tos">{termsOfUse}</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" name="agree-terms" id="agree-terms"> [[register:agree_to_terms_of_use]]
-							</label>
-						</div>
-					</div>
-				</div>
-				<!-- ENDIF termsOfUse -->
 				<div class="form-group">
 					<div class="col-lg-offset-4 col-lg-8">
 						<button class="btn btn-primary btn-lg btn-block" id="register" type="submit">[[register:register_now_button]]</button>

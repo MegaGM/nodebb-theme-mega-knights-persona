@@ -4,6 +4,7 @@
 		overflow-y: auto;
 		max-height: 250px;
 		padding: 0;
+		color: @gray-dark;
 
 		li {
 			width: 300px;
@@ -21,7 +22,6 @@
 			}
 
 			a {
-				color: inherit;
 				white-space: normal;
 				overflow: hidden;
 				margin: 0;
@@ -221,7 +221,8 @@
 	.notif-dropdown-link {
 		// margin-top: 1em;
 		border-top: 1px solid rgba(163, 163, 163, 0.5);
-
+		padding: 0 5px 0 5px;
+		
 		a {
 			display: block;
 			text-align: center;
@@ -290,63 +291,19 @@
 
 .unread-count:after {
 	content: attr(data-content);
-	position: relative;
-	left: -6px;
-	top: -7px;
+	position: absolute;
+    	left: 23px;
+    	top: 10px;
 	font-size: 10px;
 	text-align: center;
 	border: 1px solid #890405;
 	color: #fff;
 	font-weight: bold;
-	min-width: 20px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	min-width: 16px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 	background: #c91106;
 	padding: 1px 2px;
 	font-family: @font-family-sans-serif;
-}
-
-#search-form {
-	#search-button {
-		float: right;
-		max-width: 60px;
-		width: auto;
-		transition-property: max-width, padding-left, padding-right;
-		transition-duration: .2s;
-		transition-timing-function: ease;
-		overflow: hidden;
-	}
-	#search-button.hidden {
-		display: inline-block !important;
-		visibility: visible !important;
-		max-width: 0;
-		padding-left: 0;
-		padding-right: 0;
-	}
-	#search-fields {
-		width: auto;
-		max-width: 100%;
-		overflow: hidden;
-		transition: max-width 0.2s ease 0s;
-		max-height: 42px;
-		float: right;
-		display: inline-block !important;
-		visibility: visible !important;
-
-		&.hidden {
-			max-width: 0;
-		}
-
-		input.form-control {
-			width: 98%;
-		}
-
-		.form-group .advanced-search-link {
-			margin: 0;
-			width: 0;
-			position: relative;
-			left: -30px;
-		}
-	}
 }

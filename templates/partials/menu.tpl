@@ -15,7 +15,7 @@
 				</a>
 				<!-- ENDIF config.showSiteTitle -->
 
-				<div component="navbar/title" class="visible-xs">
+				<div component="navbar/title" class="visible-xs hidden">
 					<span></span>
 				</div>
 			</div>
@@ -56,6 +56,17 @@
 							<li>
 								<a href="#" class="user-status" data-status="offline">
 									<i class="fa fa-fw fa-circle status offline"></i><span> [[global:invisible]]</span>
+								</a>
+							</li>
+							<li role="presentation" class="divider"></li>
+							<li>
+								<a href="{relative_path}/user/{user.userslug}/edit">
+									<i class="fa fa-fw fa-edit"></i> <span>[[user:edit-profile]]</span>
+								</a>
+							</li>
+							<li>
+								<a href="{relative_path}/user/{user.userslug}/settings">
+									<i class="fa fa-fw fa-gear"></i> <span>[[user:settings]]</span>
 								</a>
 							</li>
 							<li role="presentation" class="divider"></li>

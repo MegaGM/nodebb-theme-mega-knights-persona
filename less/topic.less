@@ -8,6 +8,7 @@
 			font-size: 28px;
 			color:inherit;
 			line-height: 32px;
+			overflow: hidden;
 		}
 
 		> span {
@@ -33,6 +34,10 @@
 	}
 
 	.posts {
+		h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+			margin-top: 0px;
+		}
+		
 		h1 {
 			font-size: 22px;
 			margin: 10px 0;
@@ -110,9 +115,14 @@
 		.transition(0.75s ease-in-out opacity);
 	}
 
+	[component="post/anchor"] {
+		position: relative;
+		top: -20px;		/* 20px used here as that is the bottom margin of the hr in between posts */
+	}
+
 	[component="post/upvote"], [component="post/downvote"] {
 		color: @gray-light;
-        
+
         	&:focus {
             		text-decoration: none;
         	}
@@ -120,6 +130,10 @@
 
 	[component="post/upvote"].upvoted, [component="post/downvote"].downvoted {
 		color: @brand-primary;
+	}
+
+	[component="post/parent"] {
+		font-size: 10px;
 	}
 
 	.stats {
@@ -327,6 +341,7 @@
 				code {
 					white-space: pre;
 					word-wrap: normal;
+					min-width: 100%;
 				}
 			}
 

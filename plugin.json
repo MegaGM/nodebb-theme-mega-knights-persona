@@ -1,14 +1,21 @@
 {
 	"id": "nodebb-theme-mega-knights-persona",
-	"hooks": [],
+	"library": "library.js",
+	"hooks": [
+		{ "hook": "filter:teasers.get", "method": "getTeasers" },
+		{ "hook": "filter:widgets.getAreas", "method": "defineWidgetAreas" },
+		{ "hook": "filter:config.get", "method": "getThemeConfig" },
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" }
+	],
 	"scripts": [
 		"lib/persona.js",
 		"lib/modules/nprogress.js",
+		"mega/lib/modules/autohidingnavbar.js",
 		"lib/modules/slideout.min.js",
-		"lib/client/chats.js",
-		"mega/lib/modules/autohidingnavbar.js"
+		"lib/client/chats.js"
 	],
-	"staticDirs": {
-		"static": "mega/static"
-	}
+	"acpScripts": [
+		"lib/admin.js"
+	]
 }

@@ -5,25 +5,33 @@
 		<meta itemprop="name" content="{function.stripTags, title}">
 
 		<div class="col-md-7 col-sm-9 col-xs-10 content">
-			<div class="avatar pull-left">
+			<div class="avatar pull-left" title="{topics.user.username}">
 				<!-- IF showSelect -->
 				<div class="select" component="topic/select">
-					<!-- IF topics.user.picture -->
-					{function.renderTopicImage}
+					<!-- IF topics.thumb -->
+					<img src="{topics.thumb}" class="user-img" />
 					<!-- ELSE -->
-					<div class="user-icon" style="background-color: {topics.user.icon:bgColor};" title="{topics.user.username}">{topics.user.icon:text}</div>
+					<!-- IF topics.user.picture -->
+					<img component="user/picture" data-uid="{topics.user.uid}" src="{topics.user.picture}" class="user-img" />
+					<!-- ELSE -->
+					<div class="user-icon" style="background-color: {topics.user.icon:bgColor};">{topics.user.icon:text}</div>
 					<!-- ENDIF topics.user.picture -->
+					<!-- ENDIF topics.thumb -->
 					<i class="fa fa-check"></i>
 				</div>
 				<!-- ENDIF showSelect -->
 
 				<!-- IF !showSelect -->
 				<a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->" class="pull-left">
-					<!-- IF topics.user.picture -->
-					{function.renderTopicImage}
+					<!-- IF topics.thumb -->
+					<img src="{topics.thumb}" class="user-img" />
 					<!-- ELSE -->
-					<div class="user-icon" style="background-color: {topics.user.icon:bgColor};" title="{topics.user.username}">{topics.user.icon:text}</div>
+					<!-- IF topics.user.picture -->
+					<img component="user/picture" data-uid="{topics.user.uid}" src="{topics.user.picture}" class="user-img" />
+					<!-- ELSE -->
+					<div class="user-icon" style="background-color: {topics.user.icon:bgColor};">{topics.user.icon:text}</div>
 					<!-- ENDIF topics.user.picture -->
+					<!-- ENDIF topics.thumb -->
 				</a>
 				<!-- ENDIF !showSelect -->
 
@@ -33,7 +41,7 @@
 				<i component="topic/pinned" class="fa fa-thumb-tack <!-- IF !topics.pinned -->hide<!-- ENDIF !topics.pinned -->"></i>
 				<i component="topic/locked" class="fa fa-lock <!-- IF !topics.locked -->hide<!-- ENDIF !topics.locked -->"></i>
 				<!-- IF !topics.noAnchor -->
-				<a href="{config.relative_path}/topic/{topics.slug}" itemprop="url">{topics.title}</a><br />
+				<a href="{config.relative_path}/topic/{topics.slug}<!-- IF topics.bookmark -->/{topics.bookmark}<!-- ENDIF topics.bookmark -->" itemprop="url">{topics.title}</a><br />
 				<!-- ELSE -->
 				{topics.title}<br />
 				<!-- ENDIF !topics.noAnchor -->
@@ -76,7 +84,7 @@
 			<small>[[global:views]]</small>
 		</div>
 
-		<div class="col-md-3 col-sm-3 teaser hidden-xs">
+		<div class="col-md-3 col-sm-3 teaser hidden-xs" component="topic/teaser">
 			<div class="card" style="border-color: {topics.category.bgColor}">
 				<!-- IF topics.unreplied -->
 				<p>
