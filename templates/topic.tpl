@@ -5,15 +5,12 @@
 
 		<h1 component="post/header" class="hidden-xs" itemprop="name">
 
-			<i class="pull-left fa fa-thumb-tack <!-- IF !pinned -->hidden<!-- ENDIF !pinned -->"></i> <i class="pull-left fa fa-lock <!-- IF !locked -->hidden<!-- ENDIF !locked -->"></i> <span class="topic-title" component="topic/title">{title}</span>
+			<i class="pull-left fa fa-thumb-tack <!-- IF !pinned -->hidden<!-- ENDIF !pinned -->" title="[[topic:pinned]]"></i>
+			<i class="pull-left fa fa-lock <!-- IF !locked -->hidden<!-- ENDIF !locked -->" title="[[topic:locked]]"></i>
+			<i class="pull-left fa fa-arrow-circle-right <!-- IF !oldCid -->hidden<!-- ENDIF !oldCid -->" title="[[topic:moved]]"></i>
+			<!-- BEGIN icons -->@value<!-- END icons -->
 
-			<span class="browsing-users hidden hidden-xs hidden-sm pull-right">
-				<span>[[category:browsing]]</span>
-				<div component="topic/browsing/list" class="thread_active_users active-users inline-block"></div>
-				<small class="hidden">
-					<i class="fa fa-users"></i> <span component="topic/browsing/count" class="user-count"></span>
-				</small>
-			</span>
+			<span class="topic-title" component="topic/title">{title}</span>
 		</h1>
 
 		<div component="topic/deleted/message" class="alert alert-warning<!-- IF !deleted --> hidden<!-- ENDIF !deleted -->">[[topic:deleted_message]]</div>
